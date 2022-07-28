@@ -33,7 +33,7 @@ function App() {
 
     const saveJsonFile = async () => {
         const blob = new Blob(
-            [JSON.stringify(emptyCraftingMenu, null, 2)],
+            [craftingMenuPreview],
             { type: "text/plain;charset=utf-8" });
 
         FileSaver.saveAs(blob, "RecipeOverride.json");
@@ -171,7 +171,7 @@ function App() {
                         </div>
                     </div>
                     <br />
-                    <button onClick={() => previewContent()}>Preview Content</button>
+                    <button onClick={() => previewContent()}>Generate/Preview Content</button>
                     <br />
                     <button onClick={() => saveJsonFile()}>Save Override</button>
                 </div>
