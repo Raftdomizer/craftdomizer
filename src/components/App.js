@@ -141,7 +141,7 @@ function App() {
     return (
         <div>
             <h1>
-                Raftdomizer Alpha UI (WIP)
+                Raftdomizer: Recipe Randomizer (WIP)
             </h1>
             <div className="container">
                 <div className="right">
