@@ -10,9 +10,9 @@ module.exports = {
   mode: "production",
   target: "web",
   devtool: "source-map",
-  entry: "./index",
+  entry: "./src/index",
   output: {
-    path: path.resolve(__dirname, ""),
+    path: path.resolve(__dirname, "./"),
     publicPath: "/static/",
     filename: "bundle.js",
   },
