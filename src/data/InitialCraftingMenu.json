@@ -1,0 +1,172 @@
+{
+    "sections": [
+        {
+            "foodWater": [
+                {
+                    "uniqueName": "empty_cup",
+                    "ingridents": {
+                        "plastic": 4
+                    }
+                },
+                {
+                    "uniqueName": "simple_purifier",
+                    "ingridents": {
+                        "plank": 6,
+                        "palm_leaf": 6,
+                        "plastic": 4
+                    }
+                },
+                {
+                    "uniqueName": "simple_grill",
+                    "ingridents": {
+                        "plank": 6,
+                        "scrap": 1,
+                        "rope": 3
+                    }
+                },
+                {
+                    "uniqueName": "small_crop_plot",
+                    "ingridents": {
+                        "plank": 6,
+                        "rope": 4
+                    }
+                }
+            ]
+        },
+        {
+            "other": [
+                {
+                    "uniqueName": "research_table",
+                    "ingridents": {
+                        "plank": 14,
+                        "rope": 4
+                    }
+                },
+                {
+                    "uniqueName": "simple_bed",
+                    "ingridents": {
+                        "palm_leaf": 10,
+                        "plank": 6,
+                        "plastic": 4,
+                        "scrap": 1,
+                        "rope": 2
+                    }
+                },
+                {
+                    "uniqueName": "small_storage",
+                    "ingridents": {
+                        "plastic": 8,
+                        "scrap": 1,
+                        "rope": 2
+                    }
+                }
+            ]
+        },
+        {
+            "tools": [
+                {
+                    "uniqueName": "plastic_hook",
+                    "ingridents": {
+                        "plank": 1,
+                        "plastic": 2
+                    }
+                },
+                {
+                    "uniqueName": "building_hammer",
+                    "ingridents": {
+                        "plank": 4,
+                        "rope": 2
+                    }
+                },
+                {
+                    "uniqueName": "stone_axe",
+                    "ingridents": {
+                        "plank": 6,
+                        "stone": 3,
+                        "rope": 3
+                    }
+                },
+                {
+                    "uniqueName": "wooden_fishing_rod",
+                    "ingridents": {
+                        "plank": 6,
+                        "rope": 8
+                    }
+                }
+            ]
+        },
+        {
+            "weapons": [
+                {
+                    "uniqueName": "wooden_spear",
+                    "ingridents": {
+                        "plank": 8,
+                        "rope": 3
+                    }
+                }
+            ]
+        },
+        {
+            "equipment": []
+        },
+        {
+            "resources": [
+                {
+                    "uniqueName": "rope",
+                    "ingridents": {
+                        "palm_leaf": 2
+                    }
+                },
+                {
+                    "uniqueName": "nail",
+                    "ingridents": {
+                        "scrap": 2
+                    }
+                },
+                {
+                    "uniqueName": "wet_brick",
+                    "ingridents": {
+                        "sand": 2,
+                        "clay": 2
+                    }
+                }
+            ]
+        },
+        {
+            "navigation": [
+                {
+                    "uniqueName": "throwable_anchor",
+                    "ingridents": {
+                        "plank": 2,
+                        "rope": 4,
+                        "stone": 4
+                    }
+                },
+                {
+                    "uniqueName": "paddle",
+                    "ingridents": {
+                        "plank": 4,
+                        "plastic": 6,
+                        "rope": 2
+                    }
+                },
+                {
+                    "uniqueName": "sail",
+                    "ingridents": {
+                        "plank": 10,
+                        "palm_leaf": 20,
+                        "scrap": 3
+                    }
+                },
+                {
+                    "uniqueName": "streamer",
+                    "ingridents": {
+                        "plank": 6,
+                        "rope": 3,
+                        "nail": 3
+                    }
+                }
+            ]
+        }
+    ]
+}
