@@ -10,7 +10,7 @@ module.exports = {
   mode: "production",
   target: "web",
   devtool: "source-map",
-  entry: "./src/index",
+  entry: "./index",
   output: {
     path: path.resolve(__dirname, ""),
     publicPath: "/",
