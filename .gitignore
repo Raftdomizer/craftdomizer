@@ -4,6 +4,10 @@ node_modules/
 build/*
 !bundle.js
 !index.html
+build.js.LICENSE.txt
+bundle.js.map
+main.*
+report.html
 .DS_Store
 *.tgz
 my-app*
