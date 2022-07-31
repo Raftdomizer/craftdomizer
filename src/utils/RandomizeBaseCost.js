@@ -1,35 +1,27 @@
 const RandomizeBaseCost = (section) => {
-    console.log('section');
-    console.log(section);
     let updatedSection = [];
     section.forEach(element => {
         let tempObj = {};
 
         tempObj.uniqueName = element.uniqueName;
-        tempObj.ingridents = {};
+        tempObj.ingredients = {};
 
         /*
-        * Randomly assign cost of ingridents between .5 and 1.5 its base cost per ingrident
+        * Randomly assign cost of ingredients between .5 and 1.5 its base cost per ingredient
         */
-        if (Object.keys(element).includes('ingridents')) {
-            for (const ingrident in element.ingridents) {
-                let cost = element.ingridents[ingrident];
+        if (Object.keys(element).includes('ingredients')) {
+            for (const ingredient in element.ingredients) {
+                let cost = element.ingredients[ingredient];
                 let minCost = Math.round(cost * .5);
                 let maxCost = Math.round(cost * 1.5);
                 let precision = 100; // 2 decimals
                 let adjustedCost = Math.round(Math.floor((Math.random() * (maxCost * precision - minCost * precision) + minCost * precision) / (precision)));
 
-                tempObj.ingridents[ingrident] = adjustedCost;
+                tempObj.ingredients[ingredient] = adjustedCost;
             }
         }
-
-        console.log('tempObj');
-        console.log(tempObj);
         updatedSection.push(tempObj);
     });
-
-    console.log('updatedSection');
-    console.log(updatedSection);
     return updatedSection;
 }
 

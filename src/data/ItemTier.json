@@ -9,6 +9,7 @@
     "metal_ore": 1,
     "metal_ignot": 2,
     "copper": 1,
+    "copper_ore": 2,
     "titanium_ore": 99,
     "titanium_ignot": 99,
     "clay": 1,
@@ -21,8 +22,12 @@
     "giant_clam": 1,
     "explosive_powder": 4,
     "feather": 2,
-    "leather": 3,
+    "leather": 2,
     "wool": 5,
     "honeycomb": 99,
-    "bee_jar": 99
+    "bee_jar": 99,
+    "circuit_board": 5,
+    "receiver": 6,
+    "head_light": 7,
+    "recycler": 7
 }

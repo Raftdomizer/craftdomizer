@@ -11,7 +11,7 @@ Depends on what other mods it is loaded with. This mod does override a number of
 # How are the random quantities for each crafted item determined?
 When shuffling only cost, the new cost can either be 50% to 125% of its original cost with a minimum cost of 1 rounded down. For example, the number of planks required for an Engine is 20. The new cost could be as low as 10 planks and as much as 30 planks. For another example, a Stone Axe requires 3 stones, so the new cost can be as low as 1 and as high as 4.
 
-For shuffle ingridents and cost, the baseline cost are below. Same rules apply where cost can be between 50% to 125% of cost
+For shuffle ingredients and cost, the baseline cost are below. Same rules apply where cost can be between 50% to 125% of cost
 - Plank: 6
 - Plastic: 4
 - Palm Leaf: 9
@@ -24,10 +24,11 @@ This is not a complete list and is subject to change
 
 
 # Features
- - Shuffling of ingridents and quantities for the starting crafting menu
+ - Shuffling of ingredients and quantities for the starting crafting menu
  - Shuffling of quantities for starting craft menu maintaining vanilla requirements
 
 # Future
  - Tier/Sphere based progress to further randomization
  - Include flowers, fruits, seeds, vegetables, fish and their cooked variants as options to be shuffled
  - Allow Crafting Menu items to be used for other Crafting Menu items
+ - Cooking Mama - All crafting materials require food.

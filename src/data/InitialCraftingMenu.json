@@ -4,13 +4,13 @@
             "foodWater": [
                 {
                     "uniqueName": "empty_cup",
-                    "ingridents": {
+                    "ingredients": {
                         "plastic": 4
                     }
                 },
                 {
                     "uniqueName": "simple_purifier",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "palm_leaf": 6,
                         "plastic": 4
@@ -18,7 +18,7 @@
                 },
                 {
                     "uniqueName": "simple_grill",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "scrap": 1,
                         "rope": 3
@@ -26,7 +26,7 @@
                 },
                 {
                     "uniqueName": "small_crop_plot",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "rope": 4
                     }
@@ -37,14 +37,14 @@
             "other": [
                 {
                     "uniqueName": "research_table",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 14,
                         "rope": 4
                     }
                 },
                 {
                     "uniqueName": "simple_bed",
-                    "ingridents": {
+                    "ingredients": {
                         "palm_leaf": 10,
                         "plank": 6,
                         "plastic": 4,
@@ -54,7 +54,7 @@
                 },
                 {
                     "uniqueName": "small_storage",
-                    "ingridents": {
+                    "ingredients": {
                         "plastic": 8,
                         "scrap": 1,
                         "rope": 2
@@ -66,21 +66,21 @@
             "tools": [
                 {
                     "uniqueName": "plastic_hook",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 1,
                         "plastic": 2
                     }
                 },
                 {
                     "uniqueName": "building_hammer",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 4,
                         "rope": 2
                     }
                 },
                 {
                     "uniqueName": "stone_axe",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "stone": 3,
                         "rope": 3
@@ -88,7 +88,7 @@
                 },
                 {
                     "uniqueName": "wooden_fishing_rod",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "rope": 8
                     }
@@ -99,7 +99,7 @@
             "weapons": [
                 {
                     "uniqueName": "wooden_spear",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 8,
                         "rope": 3
                     }
@@ -113,19 +113,19 @@
             "resources": [
                 {
                     "uniqueName": "rope",
-                    "ingridents": {
+                    "ingredients": {
                         "palm_leaf": 2
                     }
                 },
                 {
                     "uniqueName": "nail",
-                    "ingridents": {
+                    "ingredients": {
                         "scrap": 2
                     }
                 },
                 {
                     "uniqueName": "wet_brick",
-                    "ingridents": {
+                    "ingredients": {
                         "sand": 2,
                         "clay": 2
                     }
@@ -136,7 +136,7 @@
             "navigation": [
                 {
                     "uniqueName": "throwable_anchor",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 2,
                         "rope": 4,
                         "stone": 4
@@ -144,7 +144,7 @@
                 },
                 {
                     "uniqueName": "paddle",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 4,
                         "plastic": 6,
                         "rope": 2
@@ -152,7 +152,7 @@
                 },
                 {
                     "uniqueName": "sail",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 10,
                         "palm_leaf": 20,
                         "scrap": 3
@@ -160,7 +160,7 @@
                 },
                 {
                     "uniqueName": "streamer",
-                    "ingridents": {
+                    "ingredients": {
                         "plank": 6,
                         "rope": 3,
                         "nail": 3

@@ -1,0 +1,10 @@
+{
+    "sections": [
+        { "foodWater": [] },
+        { "other": [] },
+        { "tools": [] },
+        { "weapons": [] },
+        { "resources": [] },
+        { "navigation": [] }
+    ]
+}
