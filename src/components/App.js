@@ -2,25 +2,25 @@
 import React, { useState } from "react";
 import FileSaver from "file-saver";
 
-
 // Applicaiton components
-import vanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
+import VanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
 import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
 import GeneratePreview from "../utils/GeneratePreview";
 import Preview from "./Preview";
 
 function App() {
+    // Styles
     // TODO: Figure out a way to make styles play nicely with GitHub pages
     const HeaderStyle = {textAlign: "center"};
     const ButtonStyle = {marginBottom: "25px"};
     const ContainerStyle = {display: "flex", justifyContent: "center"};
     const DivLeftRight =  {width: "50%", justifyContent: "center"};
 
-    const vanilla = vanillaCraftingMenu;
+    const parsedVanilla = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
     let emptyCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
 
-    const [craftingMenuPreview, setCraftingMenuPreview] = useState(JSON.stringify(emptyCraftingMenu, null, 2));
-    const [radioOption, setRadioOption] = useState("option1");
+    const [craftingMenuPreview, setCraftingMenuPreview] = useState(JSON.stringify(parsedVanilla, null, 2));
+    const [radioOption, setRadioOption] = useState("option0");
 
     const saveJsonFile = async () => {
         const blob = new Blob(
@@ -32,10 +32,14 @@ function App() {
 
     // TODO: Move this whole function(s) into its own container component
     const previewContent = () => {
-        const parsedJson = JSON.parse(JSON.stringify(vanilla, null, 2));
+        if (radioOption === "option0") {
+            setCraftingMenuPreview(JSON.stringify(VanillaCraftingMenu, null, 2));
+        } else{
+            const parsedJson = parsedVanilla
 
-        emptyCraftingMenu = GeneratePreview(parsedJson, radioOption);
-        setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
+            emptyCraftingMenu = GeneratePreview(parsedJson, radioOption);
+            setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
+        }
     }
 
     const handleOptionChange = (e) => {
@@ -51,6 +55,17 @@ function App() {
                 <div style={DivLeftRight}>
                 <h2>Options</h2>
                     <div>
+                        <div>
+                            <label>
+                                <input
+                                    type="radio"
+                                    value="option0"
+                                    name="randomizerOption"
+                                    checked={radioOption === "option0"}
+                                    onChange = {(e) => handleOptionChange(e)}
+                                />Vanilla
+                            </label>
+                        </div>
                         <div>
                             <label>
                                 <input
