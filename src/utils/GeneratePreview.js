@@ -32,10 +32,6 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Other
             if (section[itemKey].other) {
-                /*
-                    * TODO: The other object does not include simple bed
-                    * Missing the correctly uniqueName on the mods side
-                */
                 updatedSection = RandomizeIngredients(section[itemKey].other);
                 updatedSection = RandomizeBaseCost(updatedSection);
                 randomizedCraftingMenu = UpdateCraftingMenu(
@@ -63,6 +59,18 @@ const GeneratePreview = (parsedJson, radioOption) => {
                     updatedSection,
                     CraftingSectionNamesEnums.Weapons);
             }
+
+            //
+            // Equipment
+            if (section[itemKey].equipment) {
+                updatedSection = RandomizeIngredients(section[itemKey].equipment);
+                updatedSection = RandomizeBaseCost(updatedSection);
+                randomizedCraftingMenu = UpdateCraftingMenu(
+                    randomizedCraftingMenu,
+                    updatedSection,
+                    CraftingSectionNamesEnums.Equipment);
+            }
+            //
 
             // Resources
             if (section[itemKey].resources) {

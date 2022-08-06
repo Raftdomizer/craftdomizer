@@ -4,6 +4,7 @@
         { "other": [] },
         { "tools": [] },
         { "weapons": [] },
+        { "equipment": [] },
         { "resources": [] },
         { "navigation": [] }
     ]

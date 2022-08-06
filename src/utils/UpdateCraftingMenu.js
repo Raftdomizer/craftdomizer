@@ -37,6 +37,15 @@ const UpdateCraftingMenu = (emptyCraftingMenu, updatedSection, sectionName) => {
         });
     };
 
+    // Equipment
+    if (sectionName === CraftingSectionNamesEnums.Equipment) {
+        emptyCraftingMenu.sections.filter(x => {
+            return x.equipment;
+        }).map(y => {
+            return y.equipment = updatedSection;
+        });
+    };
+
     // Resources
     if (sectionName === CraftingSectionNamesEnums.Resources) {
         emptyCraftingMenu.sections.filter(x => {

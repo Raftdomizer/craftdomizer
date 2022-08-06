@@ -35,7 +35,7 @@ function App() {
         if (radioOption === "option0") {
             setCraftingMenuPreview(JSON.stringify(VanillaCraftingMenu, null, 2));
         } else{
-            const parsedJson = parsedVanilla
+            const parsedJson = parsedVanilla;
 
             emptyCraftingMenu = GeneratePreview(parsedJson, radioOption);
             setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
@@ -94,6 +94,19 @@ function App() {
                         onClick={() => previewContent()}>Generate Preview</button>
                     <br />
                     <button onClick={() => saveJsonFile()}>Save Override</button>
+                    <br />
+                    <br />
+                    <div>
+                        <h2>Not yet avaliable</h2>
+                        <ul>
+                            <li>Simple Bed, Hammock, Bed</li>
+                            <li>Beehive</li>
+                            <li>Shark Bait</li>
+                            <li>Trading Post exclusive items</li>
+                            <li>Healing Salves</li>
+                            <li>Decorations</li>
+                        </ul>
+                    </div>
                 </div>
                 <div sstyle={DivLeftRight}>
                     <Preview craftingMenuPreview={craftingMenuPreview}/>

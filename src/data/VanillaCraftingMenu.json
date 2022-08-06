@@ -9,11 +9,55 @@
                     }
                 },
                 {
+                    "uniqueName": "empty_bottle",
+                    "ingredients": {
+                        "plastic": 6,
+                        "vine_goo": 4
+                    }
+                },
+                {
+                    "uniqueName": "clay_bowl",
+                    "ingredients": {
+                        "clay": 2
+                    }
+                },
+                {
+                    "uniqueName": "drinking_glass",
+                    "ingredients": {
+                        "glass": 1
+                    }
+                },
+                {
+                    "uniqueName": "bucket",
+                    "ingredients": {
+                        "plank": 3,
+                        "scrape": 1,
+                        "rope": 1
+                    }
+                },
+                {
                     "uniqueName": "simple_purifier",
                     "ingredients": {
                         "plank": 6,
                         "palm_leaf": 6,
                         "plastic": 4
+                    }
+                },
+                {
+                    "uniqueName": "advanced_purifier",
+                    "ingredients": {
+                        "plank": 8,
+                        "plastic": 4,
+                        "glass": 4
+                    }
+                },
+                {
+                    "uniqueName": "electric_purifier",
+                    "ingredients": {
+                        "titanium_ingot": 4,
+                        "circuit_board": 1,
+                        "plastic": 20,
+                        "scrap": 5
                     }
                 },
                 {
@@ -25,10 +69,82 @@
                     }
                 },
                 {
+                    "uniqueName": "advanced_grill",
+                    "ingredients": {
+                        "plank": 6,
+                        "metal_ingot": 2,
+                        "rope": 2,
+                        "nail": 6
+                    }
+                },
+                {
+                    "uniqueName": "electric_grill",
+                    "ingredients": {
+                        "plank": 4,
+                        "scrap": 4,
+                        "metal_ingot": 6,
+                        "titanium_ingot": 6
+                    }
+                },
+                {
+                    "uniqueName": "cooking_pot",
+                    "ingredients": {
+                        "plank": 4,
+                        "plastic": 6,
+                        "metal_ingot": 2,
+                        "vine_goo": 4,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "juicer",
+                    "ingredients": {
+                        "plank": 6,
+                        "plastic": 6,
+                        "bolt": 1,
+                        "vine_goo": 4,
+                        "circuit_board": 1
+                    }
+                },
+                {
                     "uniqueName": "small_crop_plot",
                     "ingredients": {
                         "plank": 6,
                         "rope": 4
+                    }
+                },
+                {
+                    "uniqueName": "medium_crop_plot",
+                    "ingredients": {
+                        "plank": 6,
+                        "rope": 4
+                    }
+                },
+                {
+                    "uniqueName": "large_crop_plot",
+                    "ingredients": {
+                        "plank": 10,
+                        "rope": 4,
+                        "nail": 6,
+                        "hinge": 1
+                    }
+                },
+                {
+                    "uniqueName": "sprinkler",
+                    "ingredients": {
+                        "plastic": 12,
+                        "scrap": 2,
+                        "bolt": 2,
+                        "circuit_board": 1
+                    }
+                },
+                {
+                    "uniqueName": "scarecrow",
+                    "ingredients": {
+                        "plank": 5,
+                        "palm_leaf": 3,
+                        "nail": 3,
+                        "plastic": 3
                     }
                 }
             ]
@@ -49,6 +165,144 @@
                         "scrap": 1,
                         "rope": 2
                     }
+                },
+                {
+                    "uniqueName": "storage",
+                    "ingredients": {
+                        "plank": 8,
+                        "scrap": 3,
+                        "rope": 4,
+                        "hinge": 1
+                    }
+                },
+                {
+                    "uniqueName": "large_storage",
+                    "ingredients": {
+                        "plank": 10,
+                        "plastic": 10,
+                        "hinge": 2,
+                        "titanium_ingot": 4
+                    }
+                },
+                {
+                    "uniqueName": "smelter",
+                    "ingredients": {
+                        "plank": 8,
+                        "dry_brick": 1,
+                        "scrap": 2,
+                        "nail": 2
+                    }
+                },
+                {
+                    "uniqueName": "electric_smelter",
+                    "ingredients": {
+                        "dry_brick": 10,
+                        "circuit_board": 1,
+                        "metal_ingot": 6,
+                        "titanium_ingot": 6
+                    }
+                },
+                {
+                    "uniqueName": "collection_net",
+                    "ingredients": {
+                        "plank": 6,
+                        "rope": 8,
+                        "nail": 2
+                    }
+                },
+                {
+                    "uniqueName": "advanced_collection_net",
+                    "ingredients": {
+                        "plank": 6,
+                        "rope": 10,
+                        "titanium_ingot": 4
+                    }
+                },
+                {
+                    "uniqueName": "fuel_tank",
+                    "ingredients": {
+                        "plastic": 25,
+                        "plank": 10,
+                        "scrap": 6,
+                        "bolt": 2
+                    }
+                },
+                {
+                    "uniqueName": "water_tank",
+                    "ingredients": {
+                        "plastic": 30,
+                        "plank": 10,
+                        "rope": 5,
+                        "titanium_ingot": 3
+                    }
+                },
+                {
+                    "uniqueName": "fuel_pipe",
+                    "ingredients": {
+                        "scrap": 4
+                    }
+                },
+                {
+                    "uniqueName": "water_pipe",
+                    "ingredients": {
+                        "scrap": 4
+                    }
+                },
+                {
+                    "uniqueName": "biofuel_refiner",
+                    "ingredients": {
+                        "plastic": 12,
+                        "plank": 10,
+                        "rope": 4,
+                        "bolt": 1,
+                        "hinge": 1
+                    }
+                },
+                {
+                    "uniqueName": "advanced_biofuel_refiner",
+                    "ingredients": {
+                        "plastic": 20,
+                        "metal_ingot": 8,
+                        "titanium_ingot": 6,
+                        "bolt": 1,
+                        "hinge": 1
+                    }
+                },
+                {
+                    "uniqueName": "battery_charger",
+                    "ingredients": {
+                        "plastic": 15,
+                        "scrap": 5,
+                        "circuit_board": 1,
+                        "titanium_ingot": 4
+                    }
+                },
+                {
+                    "uniqueName": "wind_turbine",
+                    "ingredients": {
+                        "plank": 20,
+                        "rope": 8,
+                        "titanium_ingot": 4,
+                        "circuit_board": 4
+                    }
+                },
+                {
+                    "uniqueName": "zipline",
+                    "ingredients": {
+                        "plank": 5,
+                        "rope": 15,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "recycler",
+                    "ingredients": {
+                        "plastic": 6,
+                        "metal_ingot": 4,
+                        "bolt": 1,
+                        "hinge": 1,
+                        "circuit_board": 1
+                    }
                 }
             ]
         },
@@ -59,6 +313,24 @@
                     "ingredients": {
                         "plank": 1,
                         "plastic": 2
+                    }
+                },
+                {
+                    "uniqueName": "scrap_hook",
+                    "ingredients": {
+                        "scrap": 6,
+                        "rope": 2,
+                        "plank": 4,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "titanium_hook",
+                    "ingredients": {
+                        "plank": 4,
+                        "rope": 2,
+                        "bolt": 1,
+                        "titanium_ingot": 3
                     }
                 },
                 {
@@ -77,10 +349,86 @@
                     }
                 },
                 {
+                    "uniqueName": "metal_axe",
+                    "ingredients": {
+                        "plank": 8,
+                        "scrap": 2,
+                        "rope": 4,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "titanium_axe",
+                    "ingredients": {
+                        "plank": 8,
+                        "rope": 2,
+                        "bolt": 2,
+                        "titanium_ingot": 2
+                    }
+                },
+                {
                     "uniqueName": "wooden_fishing_rod",
                     "ingredients": {
                         "plank": 6,
                         "rope": 8
+                    }
+                },
+                {
+                    "uniqueName": "metal_fishing_rod",
+                    "ingredients": {
+                        "scrap": 3,
+                        "bolt": 1,
+                        "rope": 8
+                    }
+                },
+                {
+                    "uniqueName": "shears",
+                    "ingredients": {
+                        "metal_ingot": 1,
+                        "hinge": 1,
+                        "scrap":2
+                    }
+                },
+                {
+                    "uniqueName": "shovel",
+                    "ingredients": {
+                        "metal_ingot": 1,
+                        "bolt": 1,
+                        "plank":6
+                    }
+                },
+                {
+                    "uniqueName": "binoculars",
+                    "ingredients": {
+                        "empty_bottle": 2,
+                        "bolt": 1,
+                        "glass": 4,
+                        "rope": 4
+                    }
+                },
+                {
+                    "uniqueName": "sweep_net",
+                    "ingredients": {
+                        "plank": 15,
+                        "rope": 6,
+                        "vine_goo":2,
+                        "bolt":1
+                    }
+                },
+                {
+                    "uniqueName": "firework",
+                    "ingredients": {
+                        "explosive_powder": 1,
+                        "plank": 4,
+                        "plastic": 10
+                    }
+                },
+                {
+                    "uniqueName": "metal_detector",
+                    "ingredients": {
+                        "plastic": 12,
+                        "scrap": 1,
+                        "battery": 1
                     }
                 }
             ]
@@ -92,6 +440,158 @@
                     "ingredients": {
                         "plank": 8,
                         "rope": 3
+                    }
+                },
+                {
+                    "uniqueName": "metal_spear",
+                    "ingredients": {
+                        "plank": 8,
+                        "rope": 2,
+                        "metal_ingot": 2,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "machete",
+                    "ingredients": {
+                        "scrap": 3,
+                        "rope": 2,
+                        "metal_ingot": 2,
+                        "bolt": 2
+                    }
+                },
+                {
+                    "uniqueName": "titanium_sword",
+                    "ingredients": {
+                        "scrap": 3,
+                        "rope": 2,
+                        "titanium_ingot": 3,
+                        "bolt": 2
+                    }
+                },
+                {
+                    "uniqueName": "basic_bow",
+                    "ingredients": {
+                        "plank": 6,
+                        "rope": 4,
+                        "vine_goo": 2,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "stone_arrow",
+                    "ingredients": {
+                        "plank": 3,
+                        "stone": 6,
+                        "plastic": 6
+                    }
+                },
+                {
+                    "uniqueName": "metal_arrow",
+                    "ingredients": {
+                        "plank": 3,
+                        "metal_ingot": 1,
+                        "feather": 6
+                    }
+                },
+                {
+                    "uniqueName": "titanium_arrow",
+                    "ingredients": {
+                        "plank": 3,
+                        "titanium_arrow": 1,
+                        "feather": 6
+                    }
+                }
+            ]
+        },
+        {
+            "equipment": [
+                {
+                    "uniqueName": "oxygen_bottle",
+                    "ingredients": {
+                        "plastic": 8,
+                        "rope": 4,
+                        "empty_bottle": 1,
+                        "vine_goo": 4
+                    }
+                },
+                {
+                    "uniqueName": "backpack",
+                    "ingredients": {
+                        "leather": 4,
+                        "rope": 4,
+                        "wool": 6
+                    }
+                },
+                {
+                    "uniqueName": "big_backpack",
+                    "ingredients": {
+                        "rope": 4,
+                        "leather": 10,
+                        "wool": 10
+                    }
+                },
+                {
+                    "uniqueName": "flippers",
+                    "ingredients": {
+                        "plastic": 6,
+                        "seaweed": 6,
+                        "vine_goo": 4,
+                        "rope": 4
+                    }
+                },
+                {
+                    "uniqueName": "head_light",
+                    "ingredients": {
+                        "battery": 1,
+                        "rope": 2,
+                        "scrap": 2
+                    }
+                },
+                {
+                    "uniqueName": "advanced_head_light",
+                    "ingredients": {
+                        "battery": 1,
+                        "rope": 2,
+                        "titanium_ingot": 2
+                    }
+                },
+                {
+                    "uniqueName": "leather_helmet",
+                    "ingredients": {
+                        "leather": 4,
+                        "wool": 2
+                    }
+                },
+                {
+                    "uniqueName": "leather_body_armor",
+                    "ingredients": {
+                        "leather": 8,
+                        "wool": 4
+                    }
+                },
+                {
+                    "uniqueName": "leather_greaves",
+                    "ingredients": {
+                        "leather": 5,
+                        "wool": 3
+                    }
+                },
+                {
+                    "uniqueName": "zipline_tool",
+                    "ingredients": {
+                        "plastic": 15,
+                        "scrap": 5,
+                        "hinge": 1,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "electric_zipline_tool",
+                    "ingredients": {
+                        "scrap": 6,
+                        "titanium_ingot": 2,
+                        "circuit_board": 1
                     }
                 }
             ]
@@ -111,10 +611,38 @@
                     }
                 },
                 {
+                    "uniqueName": "bolt",
+                    "ingredients": {
+                        "metal_ingot": 1
+                    }
+                },
+                {
+                    "uniqueName": "hinge",
+                    "ingredients": {
+                        "metal_ingot": 1
+                    }
+                },
+                {
                     "uniqueName": "wet_brick",
                     "ingredients": {
                         "sand": 2,
                         "clay": 2
+                    }
+                },
+                {
+                    "uniqueName": "circuit_board",
+                    "ingredients": {
+                        "plastic": 5,
+                        "copper_ingot": 2,
+                        "vine_goo": 1
+                    }
+                },
+                {
+                    "uniqueName": "battery",
+                    "ingredients": {
+                        "copper_ingot": 1,
+                        "plastic": 6,
+                        "scrap": 3
                     }
                 }
             ]
@@ -127,6 +655,34 @@
                         "plank": 2,
                         "rope": 4,
                         "stone": 4
+                    }
+                },
+                {
+                    "uniqueName": "stationary_anchor",
+                    "ingredients": {
+                        "plank": 10,
+                        "rope": 6,
+                        "metal_ingot": 3,
+                        "hinge": 1
+                    }
+                },
+                {
+                    "uniqueName": "advanced_stationary_anchor",
+                    "ingredients": {
+                        "plank": 10,
+                        "rope": 6,
+                        "metal_ingot": 4,
+                        "bolt": 4,
+                        "titanium_ingot": 8
+                    }
+                },
+                {
+                    "uniqueName": "engine_controls",
+                    "ingredients": {
+                        "scrap": 6,
+                        "titanium_ingot": 6,
+                        "bolt": 4,
+                        "circuit_board":1
                     }
                 },
                 {
@@ -146,11 +702,47 @@
                     }
                 },
                 {
+                    "uniqueName": "receiver",
+                    "ingredients": {
+                        "plank": 8,
+                        "plastic": 6,
+                        "circuit_board": 2,
+                        "hinge": 1
+                    }
+                },
+                {
                     "uniqueName": "streamer",
                     "ingredients": {
                         "plank": 6,
                         "rope": 3,
                         "nail": 3
+                    }
+                },
+                {
+                    "uniqueName": "antenna",
+                    "ingredients": {
+                        "scrap": 4,
+                        "circuit_board": 1,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "engine",
+                    "ingredients": {
+                        "metal_ignot": 5,
+                        "rope": 5,
+                        "circuit_board": 1,
+                        "plank": 20
+                    }
+                },
+                {
+                    "uniqueName": "steering_wheel",
+                    "ingredients": {
+                        "scrap": 10,
+                        "metal_ingot": 4,
+                        "rope": 4,
+                        "bolt": 1,
+                        "hinge": 1
                     }
                 }
             ]
