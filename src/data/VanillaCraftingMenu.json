@@ -130,21 +130,21 @@
                     }
                 },
                 {
-                    "uniqueName": "sprinkler",
-                    "ingredients": {
-                        "plastic": 12,
-                        "scrap": 2,
-                        "bolt": 2,
-                        "circuit_board": 1
-                    }
-                },
-                {
                     "uniqueName": "scarecrow",
                     "ingredients": {
                         "plank": 5,
                         "palm_leaf": 3,
                         "nail": 3,
                         "plastic": 3
+                    }
+                },
+                {
+                    "uniqueName": "sprinkler",
+                    "ingredients": {
+                        "plastic": 12,
+                        "scrap": 2,
+                        "bolt": 2,
+                        "circuit_board": 1
                     }
                 }
             ]
@@ -156,6 +156,33 @@
                     "ingredients": {
                         "plank": 14,
                         "scrap": 2
+                    }
+                },
+                {
+                    "uniqueName": "simple_bed",
+                    "ingredients": {
+                        "palm_leaf": 10,
+                        "plank": 6,
+                        "plastic": 4,
+                        "nail": 3
+                    }
+                },
+                {
+                    "uniqueName": "hammock",
+                    "ingredients": {
+                        "palm_leaf": 10,
+                        "plank": 12,
+                        "feather": 8,
+                        "nail": 6
+                    }
+                },
+                {
+                    "uniqueName": "bed",
+                    "ingredients": {
+                        "plank": 10,
+                        "palm_leaf": 6,
+                        "feather": 14,
+                        "nail": 9
                     }
                 },
                 {
@@ -219,7 +246,7 @@
                     }
                 },
                 {
-                    "uniqueName": "fuel_tank",
+                    "uniqueName": "biofuel_tank",
                     "ingredients": {
                         "plastic": 25,
                         "plank": 10,
@@ -287,6 +314,15 @@
                     }
                 },
                 {
+                    "uniqueName": "birds_nest",
+                    "ingredients": {
+                        "plastic": 25,
+                        "plank": 10,
+                        "scrap": 6,
+                        "bolt": 2
+                    }
+                },
+                {
                     "uniqueName": "zipline",
                     "ingredients": {
                         "plank": 5,
@@ -303,11 +339,26 @@
                         "hinge": 1,
                         "circuit_board": 1
                     }
+                },
+                {
+                    "uniqueName": "trash_can",
+                    "ingredients": {
+                        "plastic": 8,
+                        "scrap": 8,
+                        "hinge": 1
+                    }
                 }
             ]
         },
         {
             "tools": [
+                {
+                    "uniqueName": "building_hammer",
+                    "ingredients": {
+                        "plank": 4,
+                        "rope": 2
+                    }
+                },
                 {
                     "uniqueName": "plastic_hook",
                     "ingredients": {
@@ -331,13 +382,6 @@
                         "rope": 2,
                         "bolt": 1,
                         "titanium_ingot": 3
-                    }
-                },
-                {
-                    "uniqueName": "building_hammer",
-                    "ingredients": {
-                        "plank": 4,
-                        "rope": 2
                     }
                 },
                 {
@@ -416,19 +460,19 @@
                     }
                 },
                 {
-                    "uniqueName": "firework",
-                    "ingredients": {
-                        "explosive_powder": 1,
-                        "plank": 4,
-                        "plastic": 10
-                    }
-                },
-                {
                     "uniqueName": "metal_detector",
                     "ingredients": {
                         "plastic": 12,
                         "scrap": 1,
                         "battery": 1
+                    }
+                },
+                {
+                    "uniqueName": "firework",
+                    "ingredients": {
+                        "explosive_powder": 1,
+                        "plank": 4,
+                        "plastic": 10
                     }
                 }
             ]
@@ -501,6 +545,23 @@
                         "titanium_arrow": 1,
                         "feather": 6
                     }
+                },
+                {
+                    "uniqueName": "net_launcher",
+                    "ingredients": {
+                        "scrap": 2,
+                        "plastic": 4,
+                        "metal_ingot": 1,
+                        "bolt": 2
+                    }
+                },
+                {
+                    "uniqueName": "net_canister",
+                    "ingredients": {
+                        "explosive_powder": 2,
+                        "rope": 4,
+                        "stone": 4
+                    }
                 }
             ]
         },
@@ -513,6 +574,15 @@
                         "rope": 4,
                         "empty_bottle": 1,
                         "vine_goo": 4
+                    }
+                },
+                {
+                    "uniqueName": "flippers",
+                    "ingredients": {
+                        "plastic": 6,
+                        "seaweed": 6,
+                        "vine_goo": 4,
+                        "rope": 4
                     }
                 },
                 {
@@ -532,15 +602,6 @@
                     }
                 },
                 {
-                    "uniqueName": "flippers",
-                    "ingredients": {
-                        "plastic": 6,
-                        "seaweed": 6,
-                        "vine_goo": 4,
-                        "rope": 4
-                    }
-                },
-                {
                     "uniqueName": "head_light",
                     "ingredients": {
                         "battery": 1,
@@ -554,6 +615,23 @@
                         "battery": 1,
                         "rope": 2,
                         "titanium_ingot": 2
+                    }
+                },
+                {
+                    "uniqueName": "zipline_tool",
+                    "ingredients": {
+                        "plastic": 15,
+                        "scrap": 5,
+                        "hinge": 1,
+                        "bolt": 1
+                    }
+                },
+                {
+                    "uniqueName": "electric_zipline_tool",
+                    "ingredients": {
+                        "scrap": 6,
+                        "titanium_ingot": 2,
+                        "circuit_board": 1
                     }
                 },
                 {
@@ -575,23 +653,6 @@
                     "ingredients": {
                         "leather": 5,
                         "wool": 3
-                    }
-                },
-                {
-                    "uniqueName": "zipline_tool",
-                    "ingredients": {
-                        "plastic": 15,
-                        "scrap": 5,
-                        "hinge": 1,
-                        "bolt": 1
-                    }
-                },
-                {
-                    "uniqueName": "electric_zipline_tool",
-                    "ingredients": {
-                        "scrap": 6,
-                        "titanium_ingot": 2,
-                        "circuit_board": 1
                     }
                 }
             ]
@@ -644,6 +705,15 @@
                         "plastic": 6,
                         "scrap": 3
                     }
+                },
+                {
+                    "uniqueName": "advanced_battery",
+                    "ingredients": {
+                        "copper_ingot": 2,
+                        "scrap": 2,
+                        "titanium_ingot": 4
+
+                    }
                 }
             ]
         },
@@ -677,15 +747,6 @@
                     }
                 },
                 {
-                    "uniqueName": "engine_controls",
-                    "ingredients": {
-                        "scrap": 6,
-                        "titanium_ingot": 6,
-                        "bolt": 4,
-                        "circuit_board":1
-                    }
-                },
-                {
                     "uniqueName": "paddle",
                     "ingredients": {
                         "plank": 4,
@@ -708,14 +769,6 @@
                         "plastic": 6,
                         "circuit_board": 2,
                         "hinge": 1
-                    }
-                },
-                {
-                    "uniqueName": "streamer",
-                    "ingredients": {
-                        "plank": 6,
-                        "rope": 3,
-                        "nail": 3
                     }
                 },
                 {
@@ -744,9 +797,25 @@
                         "bolt": 1,
                         "hinge": 1
                     }
+                },
+                {
+                    "uniqueName": "engine_controls",
+                    "ingredients": {
+                        "scrap": 6,
+                        "titanium_ingot": 6,
+                        "bolt": 4,
+                        "circuit_board":1
+                    }
+                },
+                {
+                    "uniqueName": "streamer",
+                    "ingredients": {
+                        "plank": 6,
+                        "rope": 3,
+                        "nail": 3
+                    }
                 }
             ]
         }
-
     ]
 }

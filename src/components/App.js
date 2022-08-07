@@ -18,28 +18,46 @@ function App() {
 
     const parsedVanilla = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
     let emptyCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
+    let timeStamp = new Date();
 
     const [craftingMenuPreview, setCraftingMenuPreview] = useState(JSON.stringify(parsedVanilla, null, 2));
     const [radioOption, setRadioOption] = useState("option0");
+    const [radioOptionValue, setRadioOptionValue] = useState("Vanilla");
+    const [dateTime, setDateTime] = useState(new Date().toISOString());
 
     const saveJsonFile = async () => {
         const blob = new Blob(
             [craftingMenuPreview],
             { type: "text/plain;charset=utf-8" });
 
-        FileSaver.saveAs(blob, "RecipeOverride.json");
+        if (radioOption === "option0") {
+            FileSaver.saveAs(blob, "Vanilla.json");
+        } else {
+            FileSaver.saveAs(blob, "RecipeOverride.json");
+        }
     };
 
     // TODO: Move this whole function(s) into its own container component
     const previewContent = () => {
         if (radioOption === "option0") {
             setCraftingMenuPreview(JSON.stringify(VanillaCraftingMenu, null, 2));
-        } else{
+            setRadioOptionValue("Vanilla");
+        } else {
             const parsedJson = parsedVanilla;
 
             emptyCraftingMenu = GeneratePreview(parsedJson, radioOption);
             setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
+
+            if (radioOption === "option1") {
+                setRadioOptionValue("Shuffle ingredients and cost");
+            }
+
+            if (radioOption === "option2") {
+                setRadioOptionValue("Same ingredients and shuffle cost");
+            }
         }
+
+        setDateTime(new Date().toISOString());
     }
 
     const handleOptionChange = (e) => {
@@ -99,17 +117,20 @@ function App() {
                     <div>
                         <h2>Not yet avaliable</h2>
                         <ul>
-                            <li>Simple Bed, Hammock, Bed</li>
                             <li>Beehive</li>
                             <li>Shark Bait</li>
-                            <li>Trading Post exclusive items</li>
+                            <li>Trading Post recipes</li>
                             <li>Healing Salves</li>
                             <li>Decorations</li>
                         </ul>
                     </div>
                 </div>
                 <div sstyle={DivLeftRight}>
-                    <Preview craftingMenuPreview={craftingMenuPreview}/>
+                    <Preview
+                        craftingMenuPreview={craftingMenuPreview}
+                        radioOptionValue={radioOptionValue}
+                        dateTime={dateTime}
+                    />
                 </div>
             </div>
         </div>
