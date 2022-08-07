@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Preview = (props) => {
     const {
@@ -6,6 +6,16 @@ const Preview = (props) => {
         radioOptionValue,
         dateTime
     } = props;
+
+    const [showSpoiler, setShowSpoiler] = useState(true);
+
+    const handleOnClick = () => {
+        if (showSpoiler) {
+            setShowSpoiler(false);
+        } else {
+            setShowSpoiler(true);
+        }
+    }
 
     return (
         <div>
@@ -25,10 +35,19 @@ const Preview = (props) => {
                 key="textarea"
                 rows="40"
                 cols="100"
-                value={craftingMenuPreview}
+                value= {showSpoiler ? craftingMenuPreview : "It's a secret to everybody 🤐"}
                 onChange={(e) => {}} // Feels hacky...patchwork. But works.
             >
             </textarea>
+            <div>
+                <input type="checkbox"
+                    id="spoiler"
+                    name="spoiler"
+                    onClick={(e) => handleOnClick(e)}
+                    checked={showSpoiler}
+                />
+                <label>Show Spoiler?</label>
+            </div>
         </div>
     );
 }

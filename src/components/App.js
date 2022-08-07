@@ -18,7 +18,6 @@ function App() {
 
     const parsedVanilla = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
     let emptyCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
-    let timeStamp = new Date();
 
     const [craftingMenuPreview, setCraftingMenuPreview] = useState(JSON.stringify(parsedVanilla, null, 2));
     const [radioOption, setRadioOption] = useState("option0");
@@ -30,11 +29,7 @@ function App() {
             [craftingMenuPreview],
             { type: "text/plain;charset=utf-8" });
 
-        if (radioOption === "option0") {
-            FileSaver.saveAs(blob, "Vanilla.json");
-        } else {
             FileSaver.saveAs(blob, "RecipeOverride.json");
-        }
     };
 
     // TODO: Move this whole function(s) into its own container component
@@ -112,16 +107,25 @@ function App() {
                         onClick={() => previewContent()}>Generate Preview</button>
                     <br />
                     <button onClick={() => saveJsonFile()}>Save Override</button>
-                    <br />
-                    <br />
                     <div>
-                        <h2>Not yet avaliable</h2>
+                        <h2>Instructions</h2>
+                        <ol>
+                            <li>Select a radio button option. Default is Vanilla.</li>
+                            <li>Under Options, press the "Generate Preview" button.</li>
+                            <li>Press the "Save Override" button.</li>
+                            <li>Save the file, <code>RecipeOverride.json</code>, to the folder location <code>mods\ModData\RecipeRandomizer</code>.</li>
+                            <li>Optional: To hide results, uncheck "Show Spoiler?"".</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h2>Not yet shuffled</h2>
                         <ul>
                             <li>Beehive</li>
                             <li>Shark Bait</li>
-                            <li>Trading Post recipes</li>
                             <li>Healing Salves</li>
                             <li>Decorations</li>
+                            <li>Food</li>
+                            <li>Trading Post recipes</li>
                         </ul>
                     </div>
                 </div>
