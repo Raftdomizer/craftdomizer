@@ -177,15 +177,6 @@
                     }
                 },
                 {
-                    "uniqueName": "bed",
-                    "ingredients": {
-                        "plank": 10,
-                        "palm_leaf": 6,
-                        "feather": 14,
-                        "nail": 9
-                    }
-                },
-                {
                     "uniqueName": "small_storage",
                     "ingredients": {
                         "plastic": 8,
@@ -338,14 +329,6 @@
                         "bolt": 1,
                         "hinge": 1,
                         "circuit_board": 1
-                    }
-                },
-                {
-                    "uniqueName": "trash_can",
-                    "ingredients": {
-                        "plastic": 8,
-                        "scrap": 8,
-                        "hinge": 1
                     }
                 }
             ]

@@ -42,8 +42,8 @@ const Preview = (props) => {
                 <input type="checkbox"
                     id="spoiler"
                     name="spoiler"
-                    onClick={(e) => handleOnClick(e)}
                     checked={showSpoiler}
+                    onChange = {(e) => handleOnClick(e)}
                 />
                 <label>Show Spoiler?</label>
             </div>
