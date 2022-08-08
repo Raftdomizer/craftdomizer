@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import FileSaver from "file-saver";
 
-// Applicaiton components
+// Data
 import VanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
 import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
+
+// Applicaiton components
 import GeneratePreview from "../utils/GeneratePreview";
 import Preview from "./Preview";
+import Instructions from "./Instructions";
 
 function App() {
     // Styles
@@ -14,7 +17,9 @@ function App() {
     const HeaderStyle = {textAlign: "center"};
     const ButtonStyle = {marginBottom: "25px"};
     const ContainerStyle = {display: "flex", justifyContent: "center"};
-    const DivLeftRight =  {width: "50%", justifyContent: "center"};
+    const DivRight =  {width: "25%", justifyContent: "center"};
+    const DivLeft =  {justifyContent: "center"};
+
 
     const parsedVanilla = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
     let emptyCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
@@ -65,7 +70,7 @@ function App() {
                 Raftdomizer: Recipe Randomizer (WIP)
             </h1>
             <div style={ContainerStyle}>
-                <div style={DivLeftRight}>
+                <div style={DivRight}>
                 <h2>Options</h2>
                     <div>
                         <div>
@@ -107,16 +112,7 @@ function App() {
                         onClick={() => previewContent()}>Generate Preview</button>
                     <br />
                     <button onClick={() => saveJsonFile()}>Save Override</button>
-                    <div>
-                        <h2>Instructions</h2>
-                        <ol>
-                            <li>Select a radio button option. Default is Vanilla.</li>
-                            <li>Under Options, press the "Generate Preview" button.</li>
-                            <li>Press the "Save Override" button.</li>
-                            <li>Save the file, <code>RecipeOverride.json</code>, to the folder location <code>mods\ModData\RecipeRandomizer</code>.</li>
-                            <li>Optional: To hide results, uncheck "Show Spoiler?"".</li>
-                        </ol>
-                    </div>
+                    <Instructions />
                     <div>
                         <h2>Not yet shuffled</h2>
                         <ul>
@@ -129,7 +125,7 @@ function App() {
                         </ul>
                     </div>
                 </div>
-                <div sstyle={DivLeftRight}>
+                <div style={DivLeft}>
                     <Preview
                         craftingMenuPreview={craftingMenuPreview}
                         radioOptionValue={radioOptionValue}

@@ -23,7 +23,7 @@ For shuffles that involve ingredients plus , the base cost of each ingredient is
 # Future
 
 ## In Progress
- - Basic Tier/Sphere based progress on natural progression
+ - Basic Tier/Sphere based progress on how the game normal flows.
 ## Update Existing
  - Additional items/materials (controlled via a toggle)
    - Flowers
@@ -32,9 +32,8 @@ For shuffles that involve ingredients plus , the base cost of each ingredient is
    - Vegetables (and cooked variants)
    - Fish (and cooked variants)
    - Honey
-## New Feature
- - Allow Crafting Menu items to be used for other Crafting Menu items
- - Add toggle a 'Reveal Spoiler' in case the player(s) do not wish to see the outcome
+ - Randomization to include decorations with various configurations
+## New Features
  - Add "Copy to Clipboard" (?)
  - UI component for variance and cost multiplier
  - General better UI experience
