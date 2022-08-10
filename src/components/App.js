@@ -15,7 +15,7 @@ function App() {
     // Styles
     // TODO: Figure out a way to make styles play nicely with GitHub pages
     const HeaderStyle = {textAlign: "center"};
-    const ButtonStyle = {marginBottom: "25px"};
+    const ButtonStyle = {marginRight: "25px"};
     const ContainerStyle = {display: "flex", justifyContent: "center"};
     const DivRight =  {width: "25%", justifyContent: "center"};
     const DivLeft =  {justifyContent: "center"};
@@ -67,10 +67,11 @@ function App() {
     return (
         <div>
             <h1 style={HeaderStyle}>
-                Raftdomizer: Recipe Randomizer (WIP)
+                Raftdomizer: Craftdomizer (WIP)
             </h1>
             <div style={ContainerStyle}>
                 <div style={DivRight}>
+                <Instructions />
                 <h2>Options</h2>
                     <div>
                         <div>
@@ -110,18 +111,14 @@ function App() {
                     <br />
                     <button style={ButtonStyle}
                         onClick={() => previewContent()}>Generate Preview</button>
-                    <br />
                     <button onClick={() => saveJsonFile()}>Save Override</button>
-                    <Instructions />
                     <div>
-                        <h2>Not yet shuffled</h2>
+                        <h2>Future shuffle features</h2>
                         <ul>
-                            <li>Beehive</li>
-                            <li>Shark Bait</li>
-                            <li>Healing Salves</li>
-                            <li>Decorations</li>
-                            <li>Food</li>
-                            <li>Trading Post recipes</li>
+                            <li>Flowers</li>
+                            <li>Food (cooked & uncooked)</li>
+                            <li>Trading Post Items learned from Blueprints</li>
+                            <li><a href="https://github.com/Raftdomizer/recipe-randomizer/blob/main/README.md#update-existing">And more to come</a></li>
                         </ul>
                     </div>
                 </div>

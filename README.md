@@ -29,10 +29,11 @@ For shuffles that involve ingredients plus , the base cost of each ingredient is
    - Flowers
    - Fruits
    - Seeds
-   - Vegetables (and cooked variants)
-   - Fish (and cooked variants)
-   - Honey
- - Randomization to include decorations with various configurations
+   - Food (cooked and uncooked)
+   - Shark Bait
+   - Healing Salves
+   - Decorations (Starter and Items in Decoration Packages)
+   - Trading Post Items learned from Blueprints
 ## New Features
  - Add "Copy to Clipboard" (?)
  - UI component for variance and cost multiplier
