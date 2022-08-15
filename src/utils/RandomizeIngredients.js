@@ -5,7 +5,11 @@ const RandomizeIngredients = (section) => {
     const randomizedIngredientsBaseCost = JSON.parse(JSON.stringify(RandomizedIngredientsBaseCost, null, 2));
     const ingredientAndTier = JSON.parse(JSON.stringify(IngredientTier, null, 2));
     let updatedSection = [];
+    let seedCount = 0;
+    let flowerCount = 0;
+
     section.forEach(element => {
+
         let tempObj = {};
 
         tempObj.uniqueName = element.uniqueName;
@@ -29,7 +33,7 @@ const RandomizeIngredients = (section) => {
         //
 
         /* TODO: This is ugly, I know. Plan to fix it
-         * We don't care about ingrients, just filling in the gaps
+         * We don't care about ingredients, just filling in the gaps
          * A cleaner way to find the values for dictionary keys.
          * Future Enhancement: Make replacements not 1:1
         */
@@ -39,10 +43,42 @@ const RandomizeIngredients = (section) => {
             for (const ingredient in element.ingredients) {
                 //
                 if (allowedIngredients.length > 0) {
-                    let randomIngredient = RandomizeIngredient(element.uniqueName, ingredient, allowedIngredients);
+                    let randomIngredient = RandomizeIngredient(allowedIngredients);
                     let adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
+                    let seedString = "_seed";
+                    let flowerString = "_flower";
+
+                    let randomIngredientIncludesSeed = randomIngredient.includes(seedString);
+                    let randomIngredientIncludesFlower = randomIngredient.includes(flowerString);
+
+                    // Due to the vast number of Tier 0 items which are seeds and flowers.
+                    // We keep track of how many times seeds or flowers components are rolled.
+                    if (randomIngredientIncludesSeed){
+                        seedCount = seedCount + 1;
+                    }
+
+                    if (randomIngredientIncludesFlower){
+                        flowerCount = flowerCount + 1;
+                    }
+
+                    // If a section has too many seeds, we reroll the component.
+                    if (seedCount > 1 && randomIngredientIncludesSeed) {
+                        do {
+                            randomIngredient = RandomizeIngredient(allowedIngredients);
+                            adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
+                        } while (randomIngredient.includes(seedString));
+                    }
+
+                    // If a section has too many flowers, we reroll the component.
+                    if (flowerCount > 1 && randomIngredientIncludesFlower) {
+                        do {
+                            randomIngredient = RandomizeIngredient(allowedIngredients);
+                            adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
+                        } while (randomIngredient.includes(flowerString));
+                    }
 
                     tempObj.ingredients[randomIngredient] = adjustedCost;
+                // TODO: Determine if this code is actual used. I suspect it is not...
                 } else {
                     let randomIngredient = RandomizeIngredient(element.uniqueName, ingredient, Object.values(ingredientAndTier));
                     let adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
@@ -57,19 +93,9 @@ const RandomizeIngredients = (section) => {
     return updatedSection;
 }
 
-const RandomizeIngredient = (uniqueName, ingredient, ingredientArray) => {
+const RandomizeIngredient = (ingredientArray) => {
     let randomIngredientIndex = Math.floor(Math.random() * ingredientArray.length);
     let randomIngredient = ingredientArray[randomIngredientIndex];
-
-    // We reroll if the random ingredient matches the unique name
-    // A recipe should not require itself as an ingredient
-    if (uniqueName === randomIngredient) {
-        do {
-            randomIngredientIndex = Math.floor(Math.random() * ingredientArray.length);
-            randomIngredient = ingredientArray[randomIngredientIndex];
-        }
-        while (ingredient === randomIngredient)
-    }
 
     return randomIngredient;
 }

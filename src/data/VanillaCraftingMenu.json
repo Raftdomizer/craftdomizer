@@ -16,6 +16,14 @@
                     }
                 },
                 {
+                    "uniqueName": "bucket",
+                    "ingredients": {
+                        "plank": 3,
+                        "scrape": 1,
+                        "rope": 1
+                    }
+                },
+                {
                     "uniqueName": "clay_bowl",
                     "ingredients": {
                         "clay": 2
@@ -25,14 +33,6 @@
                     "uniqueName": "drinking_glass",
                     "ingredients": {
                         "glass": 1
-                    }
-                },
-                {
-                    "uniqueName": "bucket",
-                    "ingredients": {
-                        "plank": 3,
-                        "scrape": 1,
-                        "rope": 1
                     }
                 },
                 {
@@ -92,8 +92,8 @@
                         "plank": 4,
                         "plastic": 6,
                         "metal_ingot": 2,
-                        "vine_goo": 4,
-                        "bolt": 1
+                        "bolt": 1,
+                        "vine_goo": 4
                     }
                 },
                 {
@@ -117,7 +117,7 @@
                     "uniqueName": "medium_crop_plot",
                     "ingredients": {
                         "plank": 6,
-                        "rope": 4
+                        "scrap": 4
                     }
                 },
                 {
@@ -136,6 +136,21 @@
                         "palm_leaf": 3,
                         "nail": 3,
                         "plastic": 3
+                    }
+                },
+                {
+                    "uniqueName": "healing_salve",
+                    "ingredients": {
+                        "egg": 2,
+                        "clay": 1
+                    }
+                },
+                {
+                    "uniqueName": "good_healing_salve",
+                    "ingredients": {
+                        "egg": 2,
+                        "clay": 1,
+                        "honeycomb": 1
                     }
                 },
                 {
@@ -170,8 +185,8 @@
                 {
                     "uniqueName": "hammock",
                     "ingredients": {
-                        "palm_leaf": 10,
-                        "plank": 12,
+                        "plank": 10,
+                        "palm_leaf": 12,
                         "feather": 8,
                         "nail": 6
                     }
@@ -206,9 +221,9 @@
                     "uniqueName": "smelter",
                     "ingredients": {
                         "plank": 8,
-                        "dry_brick": 1,
-                        "scrap": 2,
-                        "nail": 2
+                        "dry_brick": 6,
+                        "scrap": 4,
+                        "nail": 6
                     }
                 },
                 {
@@ -272,8 +287,7 @@
                         "plastic": 12,
                         "plank": 10,
                         "rope": 4,
-                        "bolt": 1,
-                        "hinge": 1
+                        "bolt#hinge": 1
                     }
                 },
                 {
@@ -282,8 +296,7 @@
                         "plastic": 20,
                         "metal_ingot": 8,
                         "titanium_ingot": 6,
-                        "bolt": 1,
-                        "hinge": 1
+                        "bolt#hinge": 2
                     }
                 },
                 {
@@ -307,17 +320,26 @@
                 {
                     "uniqueName": "birds_nest",
                     "ingredients": {
-                        "plastic": 25,
-                        "plank": 10,
-                        "scrap": 6,
-                        "bolt": 2
+                        "palm_leaf": 6,
+                        "plank": 6,
+                        "giant_clam": 1
+                    }
+                },
+                {
+                    "uniqueName": "beehive",
+                    "ingredients": {
+                        "plank": 20,
+                        "plastic": 8,
+                        "clay": 4,
+                        "bolt#hinge": 2,
+                        "bee_jar": 15
                     }
                 },
                 {
                     "uniqueName": "zipline",
                     "ingredients": {
                         "plank": 5,
-                        "rope": 15,
+                        "rope": 5,
                         "bolt": 1
                     }
                 },
@@ -326,8 +348,7 @@
                     "ingredients": {
                         "plastic": 6,
                         "metal_ingot": 4,
-                        "bolt": 1,
-                        "hinge": 1,
+                        "bolt#hinge": 2,
                         "circuit_board": 1
                     }
                 }
@@ -352,9 +373,9 @@
                 {
                     "uniqueName": "scrap_hook",
                     "ingredients": {
-                        "scrap": 6,
-                        "rope": 2,
                         "plank": 4,
+                        "rope": 2,
+                        "scrap": 6,
                         "bolt": 1
                     }
                 },
@@ -379,8 +400,8 @@
                     "uniqueName": "metal_axe",
                     "ingredients": {
                         "plank": 8,
-                        "scrap": 2,
                         "rope": 4,
+                        "scrap": 2,
                         "bolt": 1
                     }
                 },
@@ -419,9 +440,9 @@
                 {
                     "uniqueName": "shovel",
                     "ingredients": {
+                        "plank":6,
                         "metal_ingot": 1,
-                        "bolt": 1,
-                        "plank":6
+                        "bolt": 1
                     }
                 },
                 {
@@ -434,12 +455,20 @@
                     }
                 },
                 {
+                    "uniqueName": "shark_bait",
+                    "ingredients": {
+                        "rope": 2,
+                        "raw_herring#raw_pomfret": 2
+                    }
+
+                },
+                {
                     "uniqueName": "sweep_net",
                     "ingredients": {
                         "plank": 15,
                         "rope": 6,
-                        "vine_goo":2,
-                        "bolt":1
+                        "vine_goo": 2,
+                        "bolt": 1
                     }
                 },
                 {
@@ -454,7 +483,7 @@
                     "uniqueName": "firework",
                     "ingredients": {
                         "explosive_powder": 1,
-                        "plank": 4,
+                        "plank": 5,
                         "plastic": 10
                     }
                 }
@@ -472,7 +501,7 @@
                 {
                     "uniqueName": "metal_spear",
                     "ingredients": {
-                        "plank": 8,
+                        "plank": 6,
                         "rope": 2,
                         "metal_ingot": 2,
                         "bolt": 1
@@ -509,7 +538,7 @@
                     "uniqueName": "stone_arrow",
                     "ingredients": {
                         "plank": 3,
-                        "stone": 6,
+                        "stone": 3,
                         "plastic": 6
                     }
                 },
@@ -541,7 +570,7 @@
                 {
                     "uniqueName": "net_canister",
                     "ingredients": {
-                        "explosive_powder": 2,
+                        "explosive_powder": 1,
                         "rope": 4,
                         "stone": 4
                     }
@@ -564,7 +593,7 @@
                     "ingredients": {
                         "plastic": 6,
                         "seaweed": 6,
-                        "vine_goo": 4,
+                        "vine_goo": 5,
                         "rope": 4
                     }
                 },
@@ -674,6 +703,13 @@
                     }
                 },
                 {
+                    "uniqueName": "honey",
+                    "ingredients": {
+                        "honeycomb": 6,
+                        "glass": 1
+                    }
+                },
+                {
                     "uniqueName": "circuit_board",
                     "ingredients": {
                         "plastic": 5,
@@ -685,8 +721,8 @@
                     "uniqueName": "battery",
                     "ingredients": {
                         "copper_ingot": 1,
-                        "plastic": 6,
-                        "scrap": 3
+                        "scrap": 3,
+                        "plastic": 6
                     }
                 },
                 {
@@ -777,8 +813,7 @@
                         "scrap": 10,
                         "metal_ingot": 4,
                         "rope": 4,
-                        "bolt": 1,
-                        "hinge": 1
+                        "bolt#hinge": 2
                     }
                 },
                 {
@@ -786,7 +821,7 @@
                     "ingredients": {
                         "scrap": 6,
                         "titanium_ingot": 6,
-                        "bolt": 4,
+                        "bolt": 2,
                         "circuit_board":1
                     }
                 },

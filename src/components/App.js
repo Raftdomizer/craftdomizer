@@ -10,6 +10,7 @@ import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
 import GeneratePreview from "../utils/GeneratePreview";
 import Preview from "./Preview";
 import Instructions from "./Instructions";
+import RadioButton from "./RadioButtons";
 
 function App() {
     // Styles
@@ -74,50 +75,36 @@ function App() {
                 <Instructions />
                 <h2>Options</h2>
                     <div>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="option0"
-                                    name="randomizerOption"
-                                    checked={radioOption === "option0"}
-                                    onChange = {(e) => handleOptionChange(e)}
-                                />Vanilla
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="option1"
-                                    name="randomizerOption"
-                                    checked={radioOption === "option1"}
-                                    onChange = {(e) => handleOptionChange(e)}
-                                />Shuffle ingredients and cost
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="option2"
-                                    name="randomizerOption"
-                                    checked={radioOption === "option2"}
-                                    onChange = {(e) => handleOptionChange(e)}
-                                />Same ingredients and shuffle cost
-                            </label>
-                        </div>
+                        <RadioButton
+                                optionValue="option0"
+                                optionName="randomizerOption"
+                                radioOption={radioOption}
+                                onChange={(e) => handleOptionChange(e)}
+                                labelName="Vanilla"
+                        />
+                        <RadioButton
+                                optionValue="option1"
+                                optionName="randomizerOption"
+                                radioOption={radioOption}
+                                onChange={(e) => handleOptionChange(e)}
+                                labelName="Shuffle ingredients and cost"
+                        />
+                        <RadioButton
+                                optionValue="option2"
+                                optionName="randomizerOption"
+                                radioOption={radioOption}
+                                onChange={(e) => handleOptionChange(e)}
+                                labelName="Same ingredients and shuffle cost"
+                        />
                     </div>
                     <br />
                     <button style={ButtonStyle}
                         onClick={() => previewContent()}>Generate Preview</button>
                     <button onClick={() => saveJsonFile()}>Save Override</button>
                     <div>
-                        <h2>Future shuffle features</h2>
+                        <h2>Future Features</h2>
                         <ul>
-                            <li>Flowers</li>
-                            <li>Food (cooked & uncooked)</li>
-                            <li>Trading Post Items learned from Blueprints</li>
+                            <li>Toggles for Flowers and various foods</li>
                             <li><a href="https://github.com/Raftdomizer/recipe-randomizer/blob/main/README.md#update-existing">And more to come</a></li>
                         </ul>
                     </div>
