@@ -188,7 +188,7 @@ function App() {
                                     checked={toggles.fish}
                                     onChange={handleFishCheckBoxChange}
                                 />
-                                <label htmlFor="fish">Small Fish</label>
+                                <label htmlFor="fish">Fish</label>
                             </div>
                             <div style={{marginLeft: "35px"}}>
                                 <input
