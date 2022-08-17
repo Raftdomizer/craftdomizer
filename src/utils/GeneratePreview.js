@@ -4,7 +4,7 @@ import RandomizeBaseCost from "../utils/RandomizeBaseCost";
 import RandomizeIngredients from "./RandomizeIngredients";
 import UpdateCraftingMenu from "../utils/UpdateCraftingMenu";
 
-const GeneratePreview = (parsedJson, radioOption) => {
+const GeneratePreview = (parsedJson, radioOption, toggles) => {
     let randomizedCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
 
     // Iterate through each section of the json (other, tools, weapons, etc)
@@ -15,12 +15,12 @@ const GeneratePreview = (parsedJson, radioOption) => {
         for (const itemKey in section) {
             // Food & Water
             if (section[itemKey].foodWater) {
-                if (radioOption === "option1") {
-                    updatedSection = RandomizeIngredients(section[itemKey].foodWater);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].foodWater, toggles);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option2") {
+                if (radioOption === "option1") {
                     updatedSection = RandomizeBaseCost(section[itemKey].foodWater);
                 }
 
@@ -32,8 +32,14 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Other
             if (section[itemKey].other) {
-                updatedSection = RandomizeIngredients(section[itemKey].other);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].other, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].other);
+                }
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,
@@ -42,8 +48,15 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Tools
             if (section[itemKey].tools) {
-                updatedSection = RandomizeIngredients(section[itemKey].tools);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].tools, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].tools);
+                }
+
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,
@@ -52,8 +65,15 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Weapons
             if (section[itemKey].weapons) {
-                updatedSection = RandomizeIngredients(section[itemKey].weapons);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].weapons, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].weapons);
+                }
+
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,
@@ -63,8 +83,15 @@ const GeneratePreview = (parsedJson, radioOption) => {
             //
             // Equipment
             if (section[itemKey].equipment) {
-                updatedSection = RandomizeIngredients(section[itemKey].equipment);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].equipment, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].equipment);
+                }
+
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,
@@ -74,8 +101,15 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Resources
             if (section[itemKey].resources) {
-                updatedSection = RandomizeIngredients(section[itemKey].resources);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].resources, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].resources);
+                }
+
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,
@@ -84,8 +118,15 @@ const GeneratePreview = (parsedJson, radioOption) => {
 
             // Navigation
             if (section[itemKey].navigation) {
-                updatedSection = RandomizeIngredients(section[itemKey].navigation);
-                updatedSection = RandomizeBaseCost(updatedSection);
+                if (radioOption === "option0") {
+                    updatedSection = RandomizeIngredients(section[itemKey].navigation, toggles);
+                    updatedSection = RandomizeBaseCost(updatedSection);
+                }
+
+                if (radioOption === "option1") {
+                    updatedSection = RandomizeBaseCost(section[itemKey].navigation);
+                }
+
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,

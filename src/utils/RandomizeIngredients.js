@@ -1,12 +1,14 @@
 import RandomizedIngredientsBaseCost from "../data/RandomizedIngredientsBaseCost";
-import IngredientTier from "../data/IngredientTier.json";
+import IngredientTier from "../data/IngredientTier";
 
-const RandomizeIngredients = (section) => {
+import ComponentSubstitue from "../data/ComponentSubstitute";
+
+const RandomizeIngredients = (section, toggles) => {
     const randomizedIngredientsBaseCost = JSON.parse(JSON.stringify(RandomizedIngredientsBaseCost, null, 2));
     const ingredientAndTier = JSON.parse(JSON.stringify(IngredientTier, null, 2));
+    // TODO: Instead of using combinations, use permutations instead.
+    const substitueJson = JSON.parse(JSON.stringify(ComponentSubstitue, null, 2));
     let updatedSection = [];
-    let seedCount = 0;
-    let flowerCount = 0;
 
     section.forEach(element => {
 
@@ -16,6 +18,7 @@ const RandomizeIngredients = (section) => {
         tempObj.ingredients = {};
 
         // Based on the IngredientTier file, determine which ingredients are allowed to be used.
+        // TODO: Find a cleaner way to implement this. Two loops feels excessive.
         let allowedIngredients = [];
         for (const [ingredient, ingredientTier] of Object.entries(ingredientAndTier)) {
             if (element.uniqueName === ingredient) {
@@ -30,6 +33,41 @@ const RandomizeIngredients = (section) => {
                 }
             }
         }
+
+        if (toggles.flowers) {
+            allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flowers");
+        }
+
+        if (toggles.flowerSeeds) {
+            allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flower_seeds");
+        }
+
+        if (toggles.fish) {
+            allowedIngredients = allowedIngredients.filter((ingredient) => {
+                return ingredient != "substitute_raw_small_fish" &&
+                    ingredient != "substitute_cooked_small_fish" &&
+                    ingredient != "raw_salmon#raw_catfish" &&
+                    ingredient != "cooked_salmon#cooked_catfish";
+            });
+        }
+
+        if (toggles.growableCrops) {
+            allowedIngredients = allowedIngredients.filter((ingredient) => {
+                return ingredient != "raw_potato#raw_beet" &&
+                ingredient != "cooked_potato#cooked_beet" &&
+                ingredient != "watermelon#pineapple" &&
+                ingredient != "pineapple_seed#watermelon_seed" &&
+                ingredient != "mango#coconut" &&
+                ingredient != "palm_seed#mango_seed" &&
+                ingredient != "pinecone" &&
+                ingredient != "birch_seed" &&
+                ingredient != "strawberry" &&
+                ingredient != "banana" &&
+                ingredient != "strawberry_seed" &&
+                ingredient != "banana_seed"
+            });
+        }
+
         //
 
         /* TODO: This is ugly, I know. Plan to fix it
@@ -45,36 +83,27 @@ const RandomizeIngredients = (section) => {
                 if (allowedIngredients.length > 0) {
                     let randomIngredient = RandomizeIngredient(allowedIngredients);
                     let adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
-                    let seedString = "_seed";
-                    let flowerString = "_flower";
 
-                    let randomIngredientIncludesSeed = randomIngredient.includes(seedString);
-                    let randomIngredientIncludesFlower = randomIngredient.includes(flowerString);
-
-                    // Due to the vast number of Tier 0 items which are seeds and flowers.
-                    // We keep track of how many times seeds or flowers components are rolled.
-                    if (randomIngredientIncludesSeed){
-                        seedCount = seedCount + 1;
-                    }
-
-                    if (randomIngredientIncludesFlower){
-                        flowerCount = flowerCount + 1;
-                    }
-
-                    // If a section has too many seeds, we reroll the component.
-                    if (seedCount > 1 && randomIngredientIncludesSeed) {
-                        do {
-                            randomIngredient = RandomizeIngredient(allowedIngredients);
-                            adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
-                        } while (randomIngredient.includes(seedString));
-                    }
-
-                    // If a section has too many flowers, we reroll the component.
-                    if (flowerCount > 1 && randomIngredientIncludesFlower) {
-                        do {
-                            randomIngredient = RandomizeIngredient(allowedIngredients);
-                            adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
-                        } while (randomIngredient.includes(flowerString));
+                    // Some flowers and fish come in many forms.
+                    // Instead of adding each type to the JSON file, only one instances is present
+                    // If that type is rolled (flowers, fish, etc), we substitute it component
+                    if (randomIngredient.includes("substitute")) {
+                        switch(randomIngredient) {
+                            case "substitute_flowers":
+                                randomIngredient = RandomizeIngredient(substitueJson.flowers);
+                                break;
+                            case "substitute_flower_seeds":
+                                randomIngredient = RandomizeIngredient(substitueJson.flower_seeds);
+                                break;
+                            case "substitute_raw_small_fish":
+                                randomIngredient = RandomizeIngredient(substitueJson.raw_small_fish);
+                                break;
+                            case "substitute_cooked_small_fish":
+                                randomIngredient = RandomizeIngredient(substitueJson.cooked_small_fish);
+                                break;
+                            default:
+                                randomIngredient;
+                        }
                     }
 
                     tempObj.ingredients[randomIngredient] = adjustedCost;
@@ -89,7 +118,6 @@ const RandomizeIngredients = (section) => {
         }
         updatedSection.push(tempObj);
     });
-
     return updatedSection;
 }
 

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 const Preview = (props) => {
     const {
         craftingMenuPreview,
-        radioOptionValue,
+        lastGeneratedPreview,
         dateTime
     } = props;
 
@@ -22,7 +22,7 @@ const Preview = (props) => {
             <h2>Recipe Override Preview</h2>
             <div>
                 <div>
-                    <strong>Last selected option:</strong> {radioOptionValue}
+                    <strong>Last selected option:</strong> {lastGeneratedPreview}
                 </div>
                 <div>
                     <strong>Timestamp of last preview:</strong> {dateTime}

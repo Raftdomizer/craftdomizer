@@ -1,0 +1,43 @@
+{
+    "flower_seeds": [
+        "black_seed#blue_seed",
+        "black_seed#red_seed",
+        "black_seed#white_seed",
+        "black_seed#yellow_seed",
+        "blue_seed#red_seed",
+        "blue_seed#white_seed",
+        "blue_seed#yellow_seed",
+        "red_seed#white_seed",
+        "red_seed#yellow_seed",
+        "white_seed#yellow_seed"
+    ],
+    "flowers": [
+        "black_flower#blue_flower",
+        "black_flower#red_flower",
+        "black_flower#white_flower",
+        "black_flower#yellow_flower",
+        "blue_flower#red_flower",
+        "blue_flower#white_flower",
+        "blue_flower#yellow_flower",
+        "red_flower#white_flower",
+        "red_flower#yellow_flower",
+        "white_flower#yellow_flower"
+    ],
+    "raw_small_fish": [
+        "raw_pomfret#raw_mackerel",
+        "raw_herring#raw_pomfret",
+        "raw_pomfret#raw_tilapia",
+        "raw_mackerel#raw_herring",
+        "raw_mackerel#raw_tilapia",
+        "raw_herring#raw_tilapia"
+    ],
+    "cooked_small_fish": [
+        "cooked_pomfret#cooked_mackerel",
+        "cooked_pomfret#cooked_herring",
+        "cooked_pomfret#cooked_tilapia",
+        "cooked_mackerel#cooked_herring",
+        "cooked_mackerel#cooked_tilapia",
+        "cooked_herring#cooked_tilapia"
+    ]
+}
+

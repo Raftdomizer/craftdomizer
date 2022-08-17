@@ -1,10 +1,10 @@
 // Libraries
-import React, { useState } from "react";
+import React, { useState, setState } from "react";
 import FileSaver from "file-saver";
 
 // Data
-import VanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
-import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
+import VanillaCraftingMenu from "../data/VanillaCraftingMenu";
+import EmptyCraftingMenu from "../data/EmptyCraftingMenu";
 
 // Applicaiton components
 import GeneratePreview from "../utils/GeneratePreview";
@@ -27,8 +27,14 @@ function App() {
 
     const [craftingMenuPreview, setCraftingMenuPreview] = useState(JSON.stringify(parsedVanilla, null, 2));
     const [radioOption, setRadioOption] = useState("option0");
-    const [radioOptionValue, setRadioOptionValue] = useState("Vanilla");
+    const [lastGeneratedPreview, setLastGeneratedPreview] = useState("Vanilla");
     const [dateTime, setDateTime] = useState(new Date().toISOString());
+    const [toggles, setToggles] = useState({
+        flowers: false,
+        flowerSeeds: false,
+        fish: false,
+        growableCrops: false
+    });
 
     const saveJsonFile = async () => {
         const blob = new Blob(
@@ -40,29 +46,98 @@ function App() {
 
     // TODO: Move this whole function(s) into its own container component
     const previewContent = () => {
+        const parsedJson = parsedVanilla;
+
+        emptyCraftingMenu = GeneratePreview(parsedJson, radioOption, toggles);
+        setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
+
         if (radioOption === "option0") {
-            setCraftingMenuPreview(JSON.stringify(VanillaCraftingMenu, null, 2));
-            setRadioOptionValue("Vanilla");
-        } else {
-            const parsedJson = parsedVanilla;
+            setLastGeneratedPreview("Shuffle ingredients and cost");
+        }
 
-            emptyCraftingMenu = GeneratePreview(parsedJson, radioOption);
-            setCraftingMenuPreview(JSON.stringify(emptyCraftingMenu, null, 2));
-
-            if (radioOption === "option1") {
-                setRadioOptionValue("Shuffle ingredients and cost");
-            }
-
-            if (radioOption === "option2") {
-                setRadioOptionValue("Same ingredients and shuffle cost");
-            }
+        if (radioOption === "option1") {
+            setLastGeneratedPreview("Keep ingredients. Shuffle cost");
         }
 
         setDateTime(new Date().toISOString());
     }
 
+    const previewVanilla = () => {
+        setCraftingMenuPreview(JSON.stringify(VanillaCraftingMenu, null, 2));
+        setLastGeneratedPreview("Vanilla");
+        setToggles(prevState => ({
+            ...prevState,
+            flowers: false,
+            flowerSeeds: false,
+            fish: false,
+        }));
+    }
+
     const handleOptionChange = (e) => {
         setRadioOption(e.target.value);
+        setToggles(prevState => ({
+            ...prevState,
+            flowers: false,
+            flowerSeeds: false,
+            fish: false,
+        }));
+    }
+
+    // TODO: Checkboxes are basically the same code. Should probably make it dynamic
+    const handleFlowersCheckBoxChange = () => {
+        if (toggles.flowers) {
+            setToggles(prevState => ({
+                ...prevState,
+                flowers: false
+            }));
+        } else {
+            setToggles(prevState => ({
+                ...prevState,
+                flowers: true
+            }));
+        }
+    }
+
+    const handleFlowerSeedsCheckBoxChange = () => {
+        if (toggles.flowerSeeds) {
+            setToggles(prevState => ({
+                ...prevState,
+                flowerSeeds: false
+            }));
+        } else {
+            setToggles(prevState => ({
+                ...prevState,
+                flowerSeeds: true
+            }));
+        }
+    }
+
+    const handleFishCheckBoxChange = () => {
+        if (toggles.fish) {
+            setToggles(prevState => ({
+                ...prevState,
+                fish: false
+            }));
+        } else {
+            setToggles(prevState => ({
+                ...prevState,
+                fish: true
+            }));
+        }
+    }
+
+    const handleGrowableCropsCheckBoxChange = () => {
+        if (toggles.growableCrops) {
+            setToggles(prevState => ({
+                ...prevState,
+                growableCrops: false
+            }));
+        } else {
+            setToggles(prevState => ({
+                ...prevState,
+                growableCrops: true
+            }));
+        }
     }
 
     return (
@@ -80,21 +155,58 @@ function App() {
                                 optionName="randomizerOption"
                                 radioOption={radioOption}
                                 onChange={(e) => handleOptionChange(e)}
-                                labelName="Vanilla"
+                                labelName="Shuffle ingredients and cost"
                         />
+                        {radioOption === "option0" &&
+                        <div>
+                            <strong style={{marginLeft:"25px"}}>Exclude</strong>
+                            <div style={{marginLeft: "35px"}}>
+                                <input
+                                    type="checkbox"
+                                    id="flowers"
+                                    name="flowers"
+                                    checked={toggles.flowers}
+                                    onChange={handleFlowersCheckBoxChange}
+                                />
+                                <label htmlFor="flowers">Flowers</label>
+                            </div>
+                            <div style={{marginLeft: "35px"}}>
+                                <input
+                                    type="checkbox"
+                                    id="flowerSeeds"
+                                    name="flowerSeeds"
+                                    checked={toggles.flowerSeeds}
+                                    onChange={handleFlowerSeedsCheckBoxChange}
+                                />
+                                <label htmlFor="flowerSeeds">Flower Seeds</label>
+                            </div>
+                            <div style={{marginLeft: "35px"}}>
+                                <input
+                                    type="checkbox"
+                                    id="fish"
+                                    name="fish"
+                                    checked={toggles.fish}
+                                    onChange={handleFishCheckBoxChange}
+                                />
+                                <label htmlFor="fish">Small Fish</label>
+                            </div>
+                            <div style={{marginLeft: "35px"}}>
+                                <input
+                                    type="checkbox"
+                                    id="growableCrops"
+                                    name="growableCrops"
+                                    checked={toggles.growableCrops}
+                                    onChange={handleGrowableCropsCheckBoxChange}
+                                />
+                                <label htmlFor="growableCrops">Growable Crops</label>
+                            </div>
+                        </div>}
                         <RadioButton
                                 optionValue="option1"
                                 optionName="randomizerOption"
                                 radioOption={radioOption}
                                 onChange={(e) => handleOptionChange(e)}
-                                labelName="Shuffle ingredients and cost"
-                        />
-                        <RadioButton
-                                optionValue="option2"
-                                optionName="randomizerOption"
-                                radioOption={radioOption}
-                                onChange={(e) => handleOptionChange(e)}
-                                labelName="Same ingredients and shuffle cost"
+                                labelName="Keep ingredients. Shuffle cost"
                         />
                     </div>
                     <br />
@@ -112,9 +224,11 @@ function App() {
                 <div style={DivLeft}>
                     <Preview
                         craftingMenuPreview={craftingMenuPreview}
-                        radioOptionValue={radioOptionValue}
+                        lastGeneratedPreview={lastGeneratedPreview}
                         dateTime={dateTime}
                     />
+                    <button style={ButtonStyle}
+                        onClick={() => previewVanilla()}>Preview Vanilla</button>
                 </div>
             </div>
         </div>
