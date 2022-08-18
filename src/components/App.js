@@ -159,7 +159,7 @@ function App() {
                         />
                         {radioOption === "option0" &&
                         <div>
-                            <strong style={{marginLeft:"25px"}}>Exclude</strong>
+                            <strong style={{marginLeft:"25px"}}>Include</strong>
                             <div style={{marginLeft: "35px"}}>
                                 <input
                                     type="checkbox"

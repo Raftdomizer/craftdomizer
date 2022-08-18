@@ -34,15 +34,15 @@ const RandomizeIngredients = (section, toggles) => {
             }
         }
 
-        if (toggles.flowers) {
+        if (!toggles.flowers) {
             allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flowers");
         }
 
-        if (toggles.flowerSeeds) {
+        if (!toggles.flowerSeeds) {
             allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flower_seeds");
         }
 
-        if (toggles.fish) {
+        if (!toggles.fish) {
             allowedIngredients = allowedIngredients.filter((ingredient) => {
                 return ingredient != "substitute_raw_small_fish" &&
                     ingredient != "substitute_cooked_small_fish" &&
@@ -51,7 +51,7 @@ const RandomizeIngredients = (section, toggles) => {
             });
         }
 
-        if (toggles.growableCrops) {
+        if (!toggles.growableCrops) {
             allowedIngredients = allowedIngredients.filter((ingredient) => {
                 return ingredient != "raw_potato#raw_beet" &&
                 ingredient != "cooked_potato#cooked_beet" &&
