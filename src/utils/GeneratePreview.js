@@ -1,26 +1,28 @@
-import CraftingSectionNamesEnums from "../utils/CraftingSectionNamesEnums";
+// Application Components
 import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
+import { VanillaCraftingMenu } from "../data/VanillaCraftingMenu";
+import CraftingSectionNamesEnums from "../utils/CraftingSectionNamesEnums";
 import RandomizeBaseCost from "../utils/RandomizeBaseCost";
-import RandomizeIngredients from "./RandomizeIngredients";
 import UpdateCraftingMenu from "../utils/UpdateCraftingMenu";
+import RandomizeIngredients from "./RandomizeIngredients";
 
-const GeneratePreview = (parsedJson, radioOption, toggles) => {
+const GeneratePreview = (optionValue) => {
     let randomizedCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
 
     // Iterate through each section of the json (other, tools, weapons, etc)
-    for (const sectionKey in parsedJson) {
-        let section = parsedJson[sectionKey];
+    for (const sectionKey in VanillaCraftingMenu) {
+        let section = VanillaCraftingMenu[sectionKey];
         let updatedSection = [];
 
         for (const itemKey in section) {
             // Food & Water
             if (section[itemKey].foodWater) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].foodWater, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].foodWater);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].foodWater);
                 }
 
@@ -32,12 +34,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
 
             // Other
             if (section[itemKey].other) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].other, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].other);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].other);
                 }
                 randomizedCraftingMenu = UpdateCraftingMenu(
@@ -48,12 +50,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
 
             // Tools
             if (section[itemKey].tools) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].tools, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].tools);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].tools);
                 }
 
@@ -65,12 +67,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
 
             // Weapons
             if (section[itemKey].weapons) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].weapons, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].weapons);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].weapons);
                 }
 
@@ -83,12 +85,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
             //
             // Equipment
             if (section[itemKey].equipment) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].equipment, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].equipment);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].equipment);
                 }
 
@@ -101,12 +103,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
 
             // Resources
             if (section[itemKey].resources) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].resources, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].resources);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].resources);
                 }
 
@@ -118,12 +120,12 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
 
             // Navigation
             if (section[itemKey].navigation) {
-                if (radioOption === "option0") {
-                    updatedSection = RandomizeIngredients(section[itemKey].navigation, toggles);
+                if (optionValue === "ShuffleIngredientsAndCost") {
+                    updatedSection = RandomizeIngredients(section[itemKey].navigation);
                     updatedSection = RandomizeBaseCost(updatedSection);
                 }
 
-                if (radioOption === "option1") {
+                if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].navigation);
                 }
 
@@ -138,4 +140,4 @@ const GeneratePreview = (parsedJson, radioOption, toggles) => {
     }
 }
 
-export default GeneratePreview
+export default GeneratePreview;

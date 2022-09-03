@@ -2,8 +2,17 @@ import RandomizedIngredientsBaseCost from "../data/RandomizedIngredientsBaseCost
 import IngredientTier from "../data/IngredientTier";
 
 import ComponentSubstitue from "../data/ComponentSubstitute";
+import store from "../redux/store";
 
-const RandomizeIngredients = (section, toggles) => {
+const RandomizeIngredients = (section) => {
+    const state = store.getState();
+    const toggles = {
+        includeFlowers: state.userOptions.includeFlowers,
+        includeFlowerSeeds: state.userOptions.includeFlowerSeeds,
+        includeFishes: state.userOptions.includeFish,
+        includeGrowableCrops: state.userOptions.includeGrowableCrops
+    };
+
     const randomizedIngredientsBaseCost = JSON.parse(JSON.stringify(RandomizedIngredientsBaseCost, null, 2));
     const ingredientAndTier = JSON.parse(JSON.stringify(IngredientTier, null, 2));
     // TODO: Instead of using combinations, use permutations instead.
@@ -34,15 +43,15 @@ const RandomizeIngredients = (section, toggles) => {
             }
         }
 
-        if (!toggles.flowers) {
+        if (!toggles.includeFlowers) {
             allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flowers");
         }
 
-        if (!toggles.flowerSeeds) {
+        if (!toggles.includeFlowerSeeds) {
             allowedIngredients = allowedIngredients.filter(ingredient => ingredient != "substitute_flower_seeds");
         }
 
-        if (!toggles.fish) {
+        if (!toggles.includeFishes) {
             allowedIngredients = allowedIngredients.filter((ingredient) => {
                 return ingredient != "substitute_raw_small_fish" &&
                     ingredient != "substitute_cooked_small_fish" &&
@@ -51,7 +60,7 @@ const RandomizeIngredients = (section, toggles) => {
             });
         }
 
-        if (!toggles.growableCrops) {
+        if (!toggles.includeGrowableCrops) {
             allowedIngredients = allowedIngredients.filter((ingredient) => {
                 return ingredient != "raw_potato#raw_beet" &&
                 ingredient != "cooked_potato#cooked_beet" &&
@@ -140,4 +149,4 @@ const ApplyAdjustedCost = (randomIngredient, randomizedIngredientsBaseCost) => {
     return adjustedCost;
 }
 
-export default RandomizeIngredients
+export default RandomizeIngredients;
