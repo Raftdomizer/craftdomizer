@@ -1,5 +1,8 @@
+// Libraries
 import FileSaver from "file-saver";
 import React from "react";
+
+// State management
 import { useDispatch, useSelector } from "react-redux";
 import {
     resetToggles,
@@ -13,15 +16,23 @@ import {
     toggleFlowerSeeds,
     toggleGrowableCrops
 } from "../redux/slices/userOptionsSlice";
-import RadioButton from "./common/RadioButton";
 
 // Custom Components
 import GeneratePreview from "../utils/GeneratePreview";
 
-const UserOptions = () => {
-    // Styles
-    const ButtonStyle = { marginRight: "25px" };
+// MUI
+import { Box } from "@mui/material";
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import FormLabel from '@mui/material/FormLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import Stack from '@mui/material/Stack';
 
+const UserOptions = () => {
     const dispatch = useDispatch();
     let craftingMenuPreview = useSelector((state) => state.userOptions.craftingMenuPreview);
     const optionValue = useSelector((state) => state.userOptions.shuffleOptionName);
@@ -68,71 +79,74 @@ const UserOptions = () => {
 
     return (
         <div>
-            <h2>Options</h2>
-            <div>
-                <RadioButton
-                    optionValue="ShuffleIngredientsAndCost"
-                    optionName="randomizerOption"
-                    radioOption={optionValue}
-                    onChange={(e) => handleOptionChange(e)}
-                    labelName="Shuffle ingredients and cost"
-                />
-                {optionValue === "ShuffleIngredientsAndCost" &&
-                    <div>
-                        <strong style={{ marginLeft: "25px" }}>Include</strong>
-                        <div style={{ marginLeft: "35px" }}>
-                            <input
-                                type="checkbox"
-                                id="flowers"
-                                name="flowers"
-                                checked={includeFlowers}
-                                onChange={() => { dispatch(toggleFlowers()) }}
-                            />
-                            <label htmlFor="flowers">Flowers</label>
-                        </div>
-                        <div style={{ marginLeft: "35px" }}>
-                            <input
-                                type="checkbox"
-                                id="flowerSeeds"
-                                name="flowerSeeds"
-                                checked={includeFlowerSeeds}
-                                onChange={() => { dispatch(toggleFlowerSeeds()) }}
-                            />
-                            <label htmlFor="flowerSeeds">Flower Seeds</label>
-                        </div>
-                        <div style={{ marginLeft: "35px" }}>
-                            <input
-                                type="checkbox"
-                                id="fish"
-                                name="fish"
-                                checked={includeFish}
-                                onChange={() => { dispatch(toggleFish()) }}
-                            />
-                            <label htmlFor="fish">Fish</label>
-                        </div>
-                        <div style={{ marginLeft: "35px" }}>
-                            <input
-                                type="checkbox"
-                                id="growableCrops"
-                                name="growableCrops"
-                                checked={includeGrowableCrops}
-                                onChange={() => { dispatch(toggleGrowableCrops()) }}
-                            />
-                            <label htmlFor="growableCrops">Growable Crops</label>
-                        </div>
-                    </div>}
-                <RadioButton
-                    optionValue="KeepIngredientsShuffleCost"
-                    optionName="randomizerOption"
-                    radioOption={optionValue}
-                    onChange={(e) => handleOptionChange(e)}
-                    labelName="Keep ingredients. Shuffle cost"
-                />
-            </div>
             <br />
-            <button style={ButtonStyle}
-                onClick={() => previewContent()}>Generate Preview</button>
-            <button onClick={() => saveJsonFile()}>Save Override</button>
+            <FormControl>
+                <FormLabel id="options-controlled-radio-buttons-group">User Options</FormLabel>
+                <RadioGroup
+                    aria-labelledby="options-controlled-radio-buttons-group"
+                    name="randomizerOption"
+                    value={optionValue}
+                    onChange={(e) => handleOptionChange(e)}
+                >
+                    <FormControlLabel value="ShuffleIngredientsAndCost" control={<Radio />} label="Shuffle ingredients and cost" />
+                    <div>
+                        {optionValue === "ShuffleIngredientsAndCost" &&
+                            <div>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
+                                    <FormControl component="fieldset" variant="standard">
+                                        <FormLabel component="legend">Include</FormLabel>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
+                                            <FormGroup aria-label="position">
+                                                <FormControlLabel
+                                                    value="flowers"
+                                                    control={<Checkbox />}
+                                                    label="Flowers"
+                                                    checked={includeFlowers}
+                                                    onChange={() => { dispatch(toggleFlowers()) }}
+                                                >
+                                                </FormControlLabel>
+                                                <FormControlLabel
+                                                    value="flowerSeeds"
+                                                    control={<Checkbox />}
+                                                    label="Flower Seeds"
+                                                    checked={includeFlowerSeeds}
+                                                    onChange={() => { dispatch(toggleFlowerSeeds()) }}
+                                                >
+                                                </FormControlLabel>
+                                                <FormControlLabel
+                                                    value="fish"
+                                                    control={<Checkbox />}
+                                                    label="Fish"
+                                                    checked={includeFish}
+                                                    onChange={() => { dispatch(toggleFish()) }}
+                                                >
+                                                </FormControlLabel>
+                                                <FormControlLabel
+                                                    value="growableCrops"
+                                                    control={<Checkbox />}
+                                                    label="Growable Crops"
+                                                    checked={includeGrowableCrops}
+                                                    onChange={() => { dispatch(toggleGrowableCrops()) }}
+                                                >
+                                                </FormControlLabel>
+                                            </FormGroup>
+                                        </Box>
+                                    </FormControl>
+                                </Box>
+                            </div>}
+                    </div>
+                    <FormControlLabel value="KeepIngredientsShuffleCost" control={<Radio />} label="Keep ingredients. Shuffle cost" />
+                </RadioGroup>
+            </FormControl>
+            <br />
+            <Stack spacing={2} direction="row">
+                <Button variant="contained" onClick={previewContent}>
+                    Generate Preview
+                </Button>
+                <Button variant="contained" onClick={saveJsonFile}>
+                    Save Override
+                </Button>
+            </Stack>
         </div>
     )
 }
