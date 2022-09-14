@@ -2,8 +2,13 @@
 import React, { useState } from "react";
 
 // MUI
-import Typography from '@mui/material/Typography';
+import CircleIcon from '@mui/icons-material/Circle';
 import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 const Instructions = () => {
 
@@ -20,17 +25,34 @@ const Instructions = () => {
                 Show Instructions
             </Button>
             { showInstructions &&
-                <div>
-                    Note: If you wish to hide results, uncheck "Show Spoilers?".
-                    <ol>
-                        <li>Select a shuffle option. Default is Vanilla.</li>
-                        <ul>
-                            <li>Note: Including more options will create stronger dependency on visiting small and large islands.</li>
-                        </ul>
-                        <li>Under Options, press the "Generate Preview" button.</li>
-                        <li>Press the "Save Override" button.</li>
-                        <li>Save the file, <code>RecipeOverride.json</code>, to the folder location <code>mods\ModData\RecipeRandomizer</code>.</li>
-                    </ol>
+                <div style={{maxWidth: "500px"}}>
+                    <Typography>Note: If you wish to hide results, uncheck "Show Spoilers?".</Typography>
+                    <List dense={true}>
+                        <ListItem>
+                            <ListItemIcon>
+                                <CircleIcon color="primary" />
+                            </ListItemIcon>
+                            <ListItemText primary="1. Select a shuffle option. Default is Vanilla." />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <CircleIcon color="primary" />
+                            </ListItemIcon>
+                            <ListItemText primary="2. Under Options, press the 'Generate Preview' button." />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <CircleIcon color="primary" />
+                            </ListItemIcon>
+                            <ListItemText primary="3. Press the 'Save Override' button." />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <CircleIcon color="primary" />
+                            </ListItemIcon>
+                            <ListItemText primary="4. Save the file, 'RecipeOverride.json', to the folder location 'mods\ModData\RecipeRandomizer'." />
+                        </ListItem>
+                    </List>
                 </div>
             }
         </div>
