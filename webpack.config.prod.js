@@ -54,6 +54,11 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+      {
         test: /(\.css)$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -75,5 +80,8 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
 };

@@ -34,15 +34,16 @@ import Stack from '@mui/material/Stack';
 
 const UserOptions = () => {
     const dispatch = useDispatch();
-    let craftingMenuPreview = useSelector((state) => state.userOptions.craftingMenuPreview);
-    const optionValue = useSelector((state) => state.userOptions.shuffleOptionName);
+    // TODO: Update states with type 'anys' to a proper type
+    let craftingMenuPreview = useSelector((state: any) => state.userOptions.craftingMenuPreview);
+    const optionValue = useSelector((state: any) => state.userOptions.shuffleOptionName);
 
-    const includeFlowers = useSelector((state) => state.userOptions.includeFlowers);
-    const includeFlowerSeeds = useSelector((state) => state.userOptions.includeFlowerSeeds);
-    const includeFish = useSelector((state) => state.userOptions.includeFish);
-    const includeGrowableCrops = useSelector((state) => state.userOptions.includeGrowableCrops);
+    const includeFlowers = useSelector((state: any) => state.userOptions.includeFlowers);
+    const includeFlowerSeeds = useSelector((state: any) => state.userOptions.includeFlowerSeeds);
+    const includeFish = useSelector((state: any) => state.userOptions.includeFish);
+    const includeGrowableCrops = useSelector((state: any) => state.userOptions.includeGrowableCrops);
 
-    const handleOptionChange = (e) => {
+    const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let optionValue = e.target.value;
         if (optionValue === "ShuffleIngredientsAndCost") {
             dispatch(selectShuffleIngredientsAndCost());
@@ -103,32 +104,28 @@ const UserOptions = () => {
                                                     label="Flowers"
                                                     checked={includeFlowers}
                                                     onChange={() => { dispatch(toggleFlowers()) }}
-                                                >
-                                                </FormControlLabel>
+                                                />
                                                 <FormControlLabel
                                                     value="flowerSeeds"
                                                     control={<Checkbox />}
                                                     label="Flower Seeds"
                                                     checked={includeFlowerSeeds}
                                                     onChange={() => { dispatch(toggleFlowerSeeds()) }}
-                                                >
-                                                </FormControlLabel>
+                                                />
                                                 <FormControlLabel
                                                     value="fish"
                                                     control={<Checkbox />}
                                                     label="Fish"
                                                     checked={includeFish}
                                                     onChange={() => { dispatch(toggleFish()) }}
-                                                >
-                                                </FormControlLabel>
+                                                />
                                                 <FormControlLabel
                                                     value="growableCrops"
                                                     control={<Checkbox />}
                                                     label="Growable Crops"
                                                     checked={includeGrowableCrops}
                                                     onChange={() => { dispatch(toggleGrowableCrops()) }}
-                                                >
-                                                </FormControlLabel>
+                                                />
                                             </FormGroup>
                                         </Box>
                                     </FormControl>

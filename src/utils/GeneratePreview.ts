@@ -1,18 +1,22 @@
 // Application Components
 import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
-import { VanillaCraftingMenu } from "../data/VanillaCraftingMenu";
-import CraftingSectionNamesEnums from "../utils/CraftingSectionNamesEnums";
-import RandomizeBaseCost from "../utils/RandomizeBaseCost";
-import UpdateCraftingMenu from "../utils/UpdateCraftingMenu";
+import VanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
+import CraftingSectionNamesEnums from "./CraftingSectionNamesEnums";
+import RandomizeBaseCost from "./RandomizeBaseCost";
+import UpdateCraftingMenu from "./UpdateCraftingMenu";
 import RandomizeIngredients from "./RandomizeIngredients";
 
-const GeneratePreview = (optionValue) => {
+const GeneratePreview = (optionValue: string) => {
+    /*
+    * TODO: Update variables section, updatedSection to be proper types
+    */
     let randomizedCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
+    let vanillaCraftingMenu = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
 
     // Iterate through each section of the json (other, tools, weapons, etc)
-    for (const sectionKey in VanillaCraftingMenu) {
-        let section = VanillaCraftingMenu[sectionKey];
-        let updatedSection = [];
+    for (const sectionKey in vanillaCraftingMenu) {
+        let section = vanillaCraftingMenu[sectionKey as keyof typeof vanillaCraftingMenu];
+        let updatedSection: any[] = [];
 
         for (const itemKey in section) {
             // Food & Water

@@ -1,10 +1,18 @@
-import RandomizedIngredientsBaseCost from "../data/RandomizedIngredientsBaseCost";
-import IngredientTier from "../data/IngredientTier";
+import RandomizedIngredientsBaseCost from "../data/RandomizedIngredientsBaseCost.json";
+import IngredientTier from "../data/IngredientTier.json";
 
-import ComponentSubstitue from "../data/ComponentSubstitute";
+import ComponentSubstitue from "../data/ComponentSubstitute.json";
 import store from "../redux/store";
 
-const RandomizeIngredients = (section) => {
+interface Component {
+    uniqueName: string;
+    ingredients: object[];
+}
+
+/*
+* TODO: Update section, updatedSection,
+*/
+const RandomizeIngredients = (section: any) => {
     const state = store.getState();
     const toggles = {
         includeFlowers: state.userOptions.includeFlowers,
@@ -17,11 +25,14 @@ const RandomizeIngredients = (section) => {
     const ingredientAndTier = JSON.parse(JSON.stringify(IngredientTier, null, 2));
     // TODO: Instead of using combinations, use permutations instead.
     const substitueJson = JSON.parse(JSON.stringify(ComponentSubstitue, null, 2));
-    let updatedSection = [];
+    let updatedSection: {}[] = [];
 
-    section.forEach(element => {
+    section.forEach((element: Component) => {
 
-        let tempObj = {};
+        let tempObj: {[index: string]:any} = {
+            uniqueName: "",
+            ingredients: {}
+        }
 
         tempObj.uniqueName = element.uniqueName;
         tempObj.ingredients = {};
@@ -34,8 +45,8 @@ const RandomizeIngredients = (section) => {
                 let selectedIngredient = ingredient;
                 let tier = ingredientTier;
                 for (const [ingredient, ingredientTier] of Object.entries(ingredientAndTier)) {
-                    if(selectedIngredient !== ingredient) {
-                        if (ingredientTier < tier) {
+                    if (selectedIngredient !== ingredient) {
+                        if (Number(ingredientTier) < Number(tier)) {
                             allowedIngredients.push(ingredient);
                         }
                     }
@@ -63,17 +74,17 @@ const RandomizeIngredients = (section) => {
         if (!toggles.includeGrowableCrops) {
             allowedIngredients = allowedIngredients.filter((ingredient) => {
                 return ingredient != "raw_potato#raw_beet" &&
-                ingredient != "cooked_potato#cooked_beet" &&
-                ingredient != "watermelon#pineapple" &&
-                ingredient != "pineapple_seed#watermelon_seed" &&
-                ingredient != "mango#coconut" &&
-                ingredient != "palm_seed#mango_seed" &&
-                ingredient != "pinecone" &&
-                ingredient != "birch_seed" &&
-                ingredient != "strawberry" &&
-                ingredient != "banana" &&
-                ingredient != "strawberry_seed" &&
-                ingredient != "banana_seed"
+                    ingredient != "cooked_potato#cooked_beet" &&
+                    ingredient != "watermelon#pineapple" &&
+                    ingredient != "pineapple_seed#watermelon_seed" &&
+                    ingredient != "mango#coconut" &&
+                    ingredient != "palm_seed#mango_seed" &&
+                    ingredient != "pinecone" &&
+                    ingredient != "birch_seed" &&
+                    ingredient != "strawberry" &&
+                    ingredient != "banana" &&
+                    ingredient != "strawberry_seed" &&
+                    ingredient != "banana_seed"
             });
         }
 
@@ -97,7 +108,7 @@ const RandomizeIngredients = (section) => {
                     // Instead of adding each type to the JSON file, only one instances is present
                     // If that type is rolled (flowers, fish, etc), we substitute it component
                     if (randomIngredient.includes("substitute")) {
-                        switch(randomIngredient) {
+                        switch (randomIngredient) {
                             case "substitute_flowers":
                                 randomIngredient = RandomizeIngredient(substitueJson.flowers);
                                 break;
@@ -116,9 +127,9 @@ const RandomizeIngredients = (section) => {
                     }
 
                     tempObj.ingredients[randomIngredient] = adjustedCost;
-                // TODO: Determine if this code is actual used. I suspect it is not...
+                    // TODO: Determine if this code is actual used. I suspect it is not...
                 } else {
-                    let randomIngredient = RandomizeIngredient(element.uniqueName, ingredient, Object.values(ingredientAndTier));
+                    let randomIngredient = RandomizeIngredient(Object.values(ingredientAndTier));
                     let adjustedCost = ApplyAdjustedCost(randomIngredient, randomizedIngredientsBaseCost);
 
                     tempObj.ingredients[randomIngredient] = adjustedCost;
@@ -130,18 +141,18 @@ const RandomizeIngredients = (section) => {
     return updatedSection;
 }
 
-const RandomizeIngredient = (ingredientArray) => {
+const RandomizeIngredient = (ingredientArray: any) => {
     let randomIngredientIndex = Math.floor(Math.random() * ingredientArray.length);
     let randomIngredient = ingredientArray[randomIngredientIndex];
 
     return randomIngredient;
 }
 
-const ApplyAdjustedCost = (randomIngredient, randomizedIngredientsBaseCost) => {
+const ApplyAdjustedCost = (randomIngredient: string, randomizedIngredientsBaseCost: number) => {
     // TODO: This is still ugly, plan to clean it up in the future.
     // Should probably use Object.entries in a for-loop.
     let adjustedCost = Object.entries(randomizedIngredientsBaseCost).filter(x => {
-        return x[0] === randomIngredient
+        return x[0] === randomIngredient;
     }).map(y => {
         return y[1];
     })[0];

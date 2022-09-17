@@ -13,11 +13,11 @@ import Typography from '@mui/material/Typography';
 const HomePage = () => {
     // Styles
     // TODO: Figure out a way to make styles play nicely with GitHub pages
-    const HeaderWrapper = { textAlign: "center" };
-    const ContainerStyle = { display: "flex", justifyContent: "center" };
-    const DivRight = { justifyContent: "center" };
-    const DivLeft = { justifyContent: "center" };
-    const DivCenter = { minWidth: "10px"};
+    const HeaderWrapper = { textAlign: "center" } as const;
+    const ContainerStyle = { display: "flex", justifyContent: "center" } as const;
+    const DivRight = { justifyContent: "center" } as const;
+    const DivLeft = { justifyContent: "center" } as const;
+    const DivCenter = { minWidth: "10px"} as const;
 
     return (
         <div>

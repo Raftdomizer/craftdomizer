@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import VanillaCraftingMenu from "../../data/VanillaCraftingMenu.json";
-import {VanillaCraftingMenu} from "../../data/VanillaCraftingMenu.js";
+import VanillaCraftingMenu from "../../data/VanillaCraftingMenu.json";
 
-const parsedVanilla = VanillaCraftingMenu;
+const parsedVanilla = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
 
 export const userOptionsSlice = createSlice({
     name: "userOptions",

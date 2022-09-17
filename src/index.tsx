@@ -4,7 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import App from './components/App';
 import store from "./redux/store";
 
-const container = document.getElementById("app")
+const container = document.getElementById("app") as Element;
 const root = createRoot(container);
 
 root.render(

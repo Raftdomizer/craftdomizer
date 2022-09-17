@@ -21,7 +21,7 @@ const FutureFeatures = () => {
                     </ListItemIcon>
                     <ListItemText primary="Decorations in Crafting Menu" />
                 </ListItem>
-                <ListItem display="list-item" component="a" href="https://github.com/Raftdomizer/recipe-randomizer/blob/main/README.md#update-existing">
+                <ListItem component="a" href="https://github.com/Raftdomizer/recipe-randomizer/blob/main/README.md#update-existing">
                     <ListItemIcon>
                         <CircleIcon color="primary" />
                     </ListItemIcon>

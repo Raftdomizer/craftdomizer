@@ -12,16 +12,17 @@ import {
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Typography from '@mui/material/Typography';
 
 const Preview = () => {
     // Actions
     const dispatch = useDispatch();
-    const craftingMenuPreview = useSelector((state) => state.userOptions.craftingMenuPreview);
-    const lastGeneratedPreviewTimeStamp = useSelector((state) => state.userOptions.lastGeneratedPreviewTimeStamp);
-    const lastGeneratedPreviewOptionName = useSelector((state) => state.userOptions.lastGeneratedPreviewOptionName);
-    const showSpoiler = useSelector((state) => state.userOptions.showSpoiler);
+    // TODO: Update states with 'anys' to a proper type
+    const craftingMenuPreview = useSelector((state: any) => state.userOptions.craftingMenuPreview);
+    const lastGeneratedPreviewTimeStamp = useSelector((state: any) => state.userOptions.lastGeneratedPreviewTimeStamp);
+    const lastGeneratedPreviewOptionName = useSelector((state: any) => state.userOptions.lastGeneratedPreviewOptionName);
+    const showSpoiler = useSelector((state: any) => state.userOptions.showSpoiler);
 
     const handleOnClick = () => {
         dispatch(toggleSpoiler());
@@ -50,10 +51,11 @@ const Preview = () => {
                 disabled
                 style={{ width: 700, resize: "none" }}
 
+                minRows={30}
                 maxRows={30}
                 value={showSpoiler ? JSON.stringify(craftingMenuPreview, null, 2) : "It's a secret to everybody 🤐"}
-            >
-            </TextareaAutosize>
+             />
+
             <Stack direction="row" spacing={1} alignItems="center">
                 <Switch
                     checked={showSpoiler}
