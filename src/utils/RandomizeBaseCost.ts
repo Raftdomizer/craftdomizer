@@ -1,16 +1,12 @@
-interface Component {
-    uniqueName: string;
-    ingredients: object[];
-}
+import { CraftingMenuItem } from "../data/Types";
 
-const RandomizeBaseCost = (section: any) => {
-    // TODO: Update updatedSection, tempObject to be proper types.
-    let updatedSection: { [index: string]: any; }[] = [];
-    section.forEach((element: Component) => {
-        let tempObj: {[index: string]:any} = {
+const RandomizeBaseCost = (section: CraftingMenuItem[]) => {
+    let updatedSection: CraftingMenuItem[] = [];
+    section.forEach((element: CraftingMenuItem) => {
+        let tempObj: CraftingMenuItem = {
             uniqueName: "",
             ingredients: {}
-        }
+        };
 
         tempObj.uniqueName = element.uniqueName;
         tempObj.ingredients = {};

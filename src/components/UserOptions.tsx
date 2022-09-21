@@ -4,6 +4,7 @@ import React from "react";
 
 // State management
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from '../redux/store';
 import {
     resetToggles,
     selectKeepIngredientsShuffleCost,
@@ -33,15 +34,15 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Stack from '@mui/material/Stack';
 
 const UserOptions = () => {
-    const dispatch = useDispatch();
+    const dispatch: AppDispatch = useDispatch();
     // TODO: Update states with type 'anys' to a proper type
-    let craftingMenuPreview = useSelector((state: any) => state.userOptions.craftingMenuPreview);
-    const optionValue = useSelector((state: any) => state.userOptions.shuffleOptionName);
+    let craftingMenuPreview = useSelector((state: RootState) => state.userOptions.craftingMenuPreview);
+    const optionValue = useSelector((state: RootState) => state.userOptions.shuffleOptionName);
 
-    const includeFlowers = useSelector((state: any) => state.userOptions.includeFlowers);
-    const includeFlowerSeeds = useSelector((state: any) => state.userOptions.includeFlowerSeeds);
-    const includeFish = useSelector((state: any) => state.userOptions.includeFish);
-    const includeGrowableCrops = useSelector((state: any) => state.userOptions.includeGrowableCrops);
+    const includeFlowers = useSelector((state: RootState) => state.userOptions.includeFlowers);
+    const includeFlowerSeeds = useSelector((state: RootState) => state.userOptions.includeFlowerSeeds);
+    const includeFish = useSelector((state: RootState) => state.userOptions.includeFish);
+    const includeGrowableCrops = useSelector((state: RootState) => state.userOptions.includeGrowableCrops);
 
     const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let optionValue = e.target.value;
@@ -60,7 +61,7 @@ const UserOptions = () => {
             [JSON.stringify(craftingMenuPreview, null, 2)],
             { type: "text/plain;charset=utf-8" });
 
-        FileSaver.saveAs(blob, "RecipeOverride.json");
+        FileSaver.saveAs(blob, "CraftingMenuOverride.json");
     };
 
     const previewContent = () => {

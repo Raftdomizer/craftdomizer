@@ -8,6 +8,8 @@ import {
     setVanillaCraftingMenu, toggleSpoiler
 } from "../redux/slices/userOptionsSlice";
 
+import type { RootState, AppDispatch } from '../redux/store';
+
 // MUI
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -17,12 +19,11 @@ import Typography from '@mui/material/Typography';
 
 const Preview = () => {
     // Actions
-    const dispatch = useDispatch();
-    // TODO: Update states with 'anys' to a proper type
-    const craftingMenuPreview = useSelector((state: any) => state.userOptions.craftingMenuPreview);
-    const lastGeneratedPreviewTimeStamp = useSelector((state: any) => state.userOptions.lastGeneratedPreviewTimeStamp);
-    const lastGeneratedPreviewOptionName = useSelector((state: any) => state.userOptions.lastGeneratedPreviewOptionName);
-    const showSpoiler = useSelector((state: any) => state.userOptions.showSpoiler);
+    const dispatch: AppDispatch = useDispatch();
+    const craftingMenuPreview = useSelector((state: RootState) => state.userOptions.craftingMenuPreview);
+    const lastGeneratedPreviewTimeStamp = useSelector((state: RootState) => state.userOptions.lastGeneratedPreviewTimeStamp);
+    const lastGeneratedPreviewOptionName = useSelector((state: RootState) => state.userOptions.lastGeneratedPreviewOptionName);
+    const showSpoiler = useSelector((state: RootState) => state.userOptions.showSpoiler);
 
     const handleOnClick = () => {
         dispatch(toggleSpoiler());
@@ -36,7 +37,7 @@ const Preview = () => {
 
     return (
         <div>
-            <Typography variant="h5">Recipe Override Preview</Typography>
+            <Typography variant="h5">CraftingMenu Override Preview</Typography>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography>Last selected option:</Typography>
                 <Typography>{lastGeneratedPreviewOptionName}</Typography>

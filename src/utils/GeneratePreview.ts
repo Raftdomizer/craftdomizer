@@ -1,10 +1,11 @@
 // Application Components
 import EmptyCraftingMenu from "../data/EmptyCraftingMenu.json";
 import VanillaCraftingMenu from "../data/VanillaCraftingMenu.json";
-import CraftingSectionNamesEnums from "./CraftingSectionNamesEnums";
+import CraftingSectionNamesEnums from "../data/CraftingSectionNamesEnums";
 import RandomizeBaseCost from "./RandomizeBaseCost";
 import UpdateCraftingMenu from "./UpdateCraftingMenu";
 import RandomizeIngredients from "./RandomizeIngredients";
+import { CraftingMenuItem,FoodWater,  EmptyCraftingMenu as EmptyCraftingMenuTwo} from "../data/Types"
 
 const GeneratePreview = (optionValue: string) => {
     /*
@@ -12,11 +13,13 @@ const GeneratePreview = (optionValue: string) => {
     */
     let randomizedCraftingMenu = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
     let vanillaCraftingMenu = JSON.parse(JSON.stringify(VanillaCraftingMenu, null, 2));
+    let randomizedCraftingMenuTwo: EmptyCraftingMenuTwo = JSON.parse(JSON.stringify(EmptyCraftingMenu, null, 2));
 
     // Iterate through each section of the json (other, tools, weapons, etc)
     for (const sectionKey in vanillaCraftingMenu) {
         let section = vanillaCraftingMenu[sectionKey as keyof typeof vanillaCraftingMenu];
-        let updatedSection: any[] = [];
+        // TODO: This bit feels weird... will need to look into it further
+        let updatedSection: CraftingMenuItem[] = [];
 
         for (const itemKey in section) {
             // Food & Water
@@ -29,7 +32,6 @@ const GeneratePreview = (optionValue: string) => {
                 if (optionValue === "KeepIngredientsShuffleCost") {
                     updatedSection = RandomizeBaseCost(section[itemKey].foodWater);
                 }
-
                 randomizedCraftingMenu = UpdateCraftingMenu(
                     randomizedCraftingMenu,
                     updatedSection,

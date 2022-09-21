@@ -50,7 +50,7 @@ const Instructions = () => {
                             <ListItemIcon>
                                 <CircleIcon color="primary" />
                             </ListItemIcon>
-                            <ListItemText primary="4. Save the file, 'RecipeOverride.json', to the folder location 'mods\ModData\RecipeRandomizer'." />
+                            <ListItemText primary="4. Save the file, 'CraftingMenuOverride.json', to the folder location 'mods\ModData\RecipeRandomizer'." />
                         </ListItem>
                     </List>
                 </div>
