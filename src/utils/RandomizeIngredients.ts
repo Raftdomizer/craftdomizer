@@ -42,7 +42,7 @@ const RandomizeIngredients = (section: CraftingMenuItem[] ) => {
             }
         }
 
-        allowedIngredients= UpdateAllowIngredientsFromToggles(allowedIngredients);
+        allowedIngredients = UpdateAllowIngredientsFromToggles(allowedIngredients);
 
         /* TODO: This is ugly, I know. Plan to fix it
          * We don't care about ingredients, just filling in the gaps

@@ -1,14 +1,16 @@
 import store from "../redux/store";
-const state = store.getState();
 
-const toggles = {
-    includeFlowers: state.userOptions.includeFlowers,
-    includeFlowerSeeds: state.userOptions.includeFlowerSeeds,
-    includeFishes: state.userOptions.includeFish,
-    includeGrowableCrops: state.userOptions.includeGrowableCrops
-};
 
 export const UpdateAllowIngredientsFromToggles = (allowedIngredients: string[]) => {
+    const state = store.getState();
+
+    const toggles = {
+        includeFlowers: state.userOptions.includeFlowers,
+        includeFlowerSeeds: state.userOptions.includeFlowerSeeds,
+        includeFishes: state.userOptions.includeFish,
+        includeGrowableCrops: state.userOptions.includeGrowableCrops
+    };
+
     if (!toggles.includeFlowers) {
         allowedIngredients = allowedIngredients.filter((ingredient: string) => ingredient != "substitute_flowers");
     }
